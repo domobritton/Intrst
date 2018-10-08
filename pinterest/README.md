@@ -1,22 +1,14 @@
-#intrst
+# intrst
 
 ![](intrst.gif)
 
-* Ruby version
+Intrst is a single-page app inspired by Pinterest. Built on Rails and React/Redux it utilizes a RESTful architecture.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-
-* ...
+## Features will include:
+User authentication
+User profiles
+Photo feed utilizing infinite scroll & a responsive masonry grid
+Board creation and deletion
+Pin photos to boards
+View individual pin/board show pages
+Follow other users
