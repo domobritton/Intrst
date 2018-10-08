@@ -1,7 +1,7 @@
 
 ![](intrst.gif)
 
-**Intrst** is a single-page app inspired by Pinterest. Built on Rails and React/Redux it utilizes a RESTful architecture.
+**Intrst** is a single-page lifestyle app inspired by Pinterest. Built on Rails and React/Redux it utilizes a RESTful architecture.
 
 ## Features will include:
 * User authentication
