@@ -1,21 +1,16 @@
 import React from 'react';
 import { withRouter } from "react-router";
 
-class SessionForm extends React.Component {
+class LoginForm extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
       email: '',
       password: ''
     };
-    
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  updateUsername(e) {
-    this.setState({username: e.currentTarget.value});
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateEmail(e) {
@@ -49,24 +44,15 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className='session-page'>
-        <div className='login-btn'>
-          {this.props.navLink}
-        </div>
         <div className='session-form'>
           <img className='logo' src={window.logo} alt='logo'/>
-          <h3>Welcome to Intrst</h3>
-          <h4>Find new ideas to try</h4>
+          <h3>Log in to see more</h3>
+          <h4>Access Intrst's best ideas</h4>
           <p>{this.errorsMessage}</p>
           <form
             className='inner-form'
             onSubmit={this.handleSubmit}>
             <div className='input-fields'>
-              <input
-                type='text'
-                placeholder='Username'
-                onChange={this.updateUsername.bind(this)}>
-              </input>
-              <br />
               <input
                 type='text'
                 placeholder='Email'
@@ -92,6 +78,10 @@ class SessionForm extends React.Component {
               value='Demo Login'>
             </input>
             <br />
+              <div className='div-line'></div>
+              <div className='signup-link'>
+                {this.props.navLink}
+              </div>
             </div>
           </form>
         </div>
@@ -100,4 +90,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default withRouter(SessionForm);
+export default withRouter(LoginForm);

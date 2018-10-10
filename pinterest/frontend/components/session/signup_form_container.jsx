@@ -9,7 +9,7 @@ const msp = (state) => {
   return {
     errors: state.errors.session,
     formType: 'Continue',
-    navLink: <Link to='/login' style={{ textDecoration: 'none', color: '#000' }}>Log in</Link>
+    navLink: <Link to='/login' style={{ textDecoration: 'none', color: '#717171' }}>Log in</Link>
   };
 };
 
