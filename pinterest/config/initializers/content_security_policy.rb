@@ -1,3 +1,5 @@
+# Rails.application.config.action_controller.default_protect_from_forgery = false
+
 # Be sure to restart your server when you modify this file.
 
 # Define an application-wide content security policy
