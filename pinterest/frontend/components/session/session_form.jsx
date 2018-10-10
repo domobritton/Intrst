@@ -6,10 +6,15 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      username: '',
+      email: '',
+      password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  updateUsername(e) {
+    this.setState({username: e.currentTarget.value});
   }
 
   updateEmail(e) {
@@ -23,11 +28,15 @@ class SessionForm extends React.Component {
   errorsMessage() {
     return (
       <ul>
-      {this.props.errors.map(er => {
-           return <li>{er}</li>;
+      {this.props.errors.map((error, idx) => {
+           return <li key={idx}>{error}</li>;
       })}
       </ul>
     );
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   handleSubmit(e) {
@@ -38,36 +47,53 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Welcome to Intrst</h3>
-        <h4>Find new ideas to try</h4>
-        <form onSubmit={this.handleSubmit}>
-          {this.errorsMessage}
-          <input
-            type='text'
-            placeholder='Username'
-            onChange={this.updateEmail.bind(this)}>
-          </input>
-          <br />
-          <input
-            type='text'
-            placeholder='Email'
-            onChange={this.updateEmail.bind(this)}>
-          </input>
-          <br />
-          <input
-            type='password'
-            placeholder='Password'
-            onChange={this.updatePassword.bind(this)}>
-          </input>
-          <br />
-          <input
-            type='submit'
-            value={this.props.formType}>
-          </input>
-          <br />
+      <div className='session-page'>
+        <div className='login-btn'>
           {this.props.navLink}
-        </form>
+        </div>
+        <div className='session-form'>
+          <img className='logo' src={window.logo} alt='logo'/>
+          <h3>Welcome to Intrst</h3>
+          <h4>Find new ideas to try</h4>
+          <p>{this.errorsMessage}</p>
+          <form
+            className='inner-form'
+            onSubmit={this.handleSubmit}>
+            <div className='input-fields'>
+              <input
+                type='text'
+                placeholder='Username'
+                onChange={this.updateUsername.bind(this)}>
+              </input>
+              <br />
+              <input
+                type='text'
+                placeholder='Email'
+                onChange={this.updateEmail.bind(this)}>
+              </input>
+              <br />
+              <input
+                type='password'
+                placeholder='Password'
+                onChange={this.updatePassword.bind(this)}>
+              </input>
+              <br />
+            </div>
+            <div className='submit-btn'>
+            <input
+              type='submit'
+              value='Continue'>
+            </input>
+            <br />
+            <input
+              type='submit'
+              onClick=''
+              value='Demo Login'>
+            </input>
+            <br />
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

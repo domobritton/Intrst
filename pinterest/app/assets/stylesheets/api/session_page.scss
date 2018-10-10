@@ -1,0 +1,94 @@
+.session-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background: url('https://blog.gaijinpot.com/wp-content/uploads/sites/4/2017/12/Hatsuhinode-533978712.jpg');
+  background-size: cover;
+}
+
+.session-form {
+  margin: 0 auto;
+  width: 400px;
+  min-height: 533px;
+  padding-top: 25px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: -6%;
+}
+
+.inner-form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.input-fields input {
+  min-height: 40px;
+  border: 1px solid #8e8e8e;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 250px;
+  padding: 3px 14px;
+  margin-top: 10px;
+}
+.submit-btn input {
+  // background-color: #1eb4de;
+  background-color: rgba(189, 8, 28, 1);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
+  border-radius: 4px;
+  height: 36px;
+  padding: 3px 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 280px;
+  align-items: center;
+}
+
+.session-form h3 {
+  margin-top: -20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.session-form h4 {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgba(204, 204, 204, 1);
+}
+
+.logo{
+  height: 90px;
+  width: 130px;
+  padding-top: 10px;
+  margin-left: -20px;
+}
+
+.login-btn {
+  min-height: 25px;
+  background-color: #efefef;
+  padding: 10px 14px 0 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 100px;
+  text-align: center;
+  margin: auto;
+}
+
+.login-btn a {
+  line-height: 14px;
+  font-size: 14px;
+  font-weight: bold;
+}

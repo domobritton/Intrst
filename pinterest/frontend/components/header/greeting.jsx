@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SignupFormContainer from '../session/signup_form_container';
 
 const Greeting = ({currentUser, logout}) => {
 
     const sessionLinks = () => (
       <div>
-        <Link to='/signup'>Sign Up</Link>
-        <br />
-        <Link to='/login'>Login</Link>
+        <SignupFormContainer />
       </div>
     );
 
