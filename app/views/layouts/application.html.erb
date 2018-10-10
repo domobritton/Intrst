@@ -7,6 +7,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script>
+      window.logo = "<%= asset_path('intrst-logo.png') %>"
+    </script>
 
     <% if logged_in? %>
       <script type="text/javascript">
@@ -16,7 +20,7 @@
         ).html_safe %>
       </script>
     <% end %>
-    
+
   </head>
 
   <body>
