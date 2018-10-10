@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :null_session
-  respond_to :json
-  
+  # protect_from_forgery with: :null_session
+  # respond_to :json
+
   helper_method :current_user, :logged_in?
-  before_action :underscore_params!
+  # before_action :underscore_params!
 
   def current_user
     @current_user ||= User.find_by_session_token(session[:session_token])
