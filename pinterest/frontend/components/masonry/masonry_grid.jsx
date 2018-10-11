@@ -6,6 +6,7 @@ class MasonryGrid extends React.Component{
 		this.state = {columns: 1};
 		this.onResize = this.onResize.bind(this);
 	}
+  
 	componentDidMount(){
 		this.onResize();
 		window.addEventListener('resize', this.onResize);
@@ -39,10 +40,10 @@ class MasonryGrid extends React.Component{
 
 	render(){
 		return (
-			<div className="masonry" ref="Masonry">
+			<div className='masonry' ref='Masonry'>
 				{this.mapChildren().map((col, ci) => {
 					return (
-						<div className="column" key={ci} >
+						<div className='column' key={ci} >
 							{col.map((child, i) => {
 								return <div key={i} >{child}</div>;
 							})}
