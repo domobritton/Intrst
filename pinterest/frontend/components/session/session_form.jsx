@@ -1,5 +1,6 @@
 import React from 'react';
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
+import Masonry from '../masonry/masonry';
 
 class SessionForm extends React.Component {
 
@@ -86,6 +87,7 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className='session-page'>
+        <Masonry />
         <div className='login-btn'>
           {this.props.navLink}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from "react-router";
+import Masonry from '../masonry/masonry';
 
 class LoginForm extends React.Component {
 
@@ -69,6 +70,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className='session-page'>
+        <Masonry />
         <div className='session-form'>
           <img className='logo' src={window.logo} alt='logo'/>
           <h3>Log in to see more</h3>
