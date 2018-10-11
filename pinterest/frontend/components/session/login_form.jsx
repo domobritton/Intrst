@@ -11,6 +11,8 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
+    this.loginHelper = this.loginHelper.bind(this);
   }
 
   updateEmail(e) {
@@ -41,6 +43,29 @@ class LoginForm extends React.Component {
     this.props.processForm(user);
   }
 
+  guestLogin() {
+    const email = 'guest@guest.com'.split('');
+    const password = 'Aacademy'.split('');
+    const button = document.getElementById('login');
+    this.setState({email: '', password: ''}, () => (
+      this.loginHelper(email, password, button)
+    ));
+  }
+
+  loginHelper(email, password, button) {
+    if (email.length > 0) {
+      this.setState({email: this.state.email + email.shift()}, () => {
+        window.setTimeout(() => this.loginHelper(email, password, button), 75);
+      });
+    } else if(password.length > 0) {
+      this.setState({password: this.state.password + password.shift()}, () => {
+        window.setTimeout(() => this.loginHelper(email, password, button), 100);
+      });
+    } else {
+      button.click();
+    }
+  }
+
   render() {
     return (
       <div className='session-page'>
@@ -56,25 +81,28 @@ class LoginForm extends React.Component {
               <input
                 type='text'
                 placeholder='Email'
-                onChange={this.updateEmail.bind(this)}>
+                onChange={this.updateEmail.bind(this)}
+                value={this.state.email}>
               </input>
               <br />
               <input
                 type='password'
                 placeholder='Password'
-                onChange={this.updatePassword.bind(this)}>
+                onChange={this.updatePassword.bind(this)}
+                value={this.state.password}>
               </input>
               <br />
             </div>
             <div className='submit-btn'>
             <input
+              id='login'
               type='submit'
               value={this.props.formType}>
             </input>
             <br />
             <input
               type='submit'
-              onClick=''
+              onClick={this.guestLogin}
               value='Demo Login'>
             </input>
             <br />
@@ -91,3 +119,5 @@ class LoginForm extends React.Component {
 }
 
 export default withRouter(LoginForm);
+
+// https://source.unsplash.com/random

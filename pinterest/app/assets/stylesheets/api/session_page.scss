@@ -99,9 +99,13 @@
   font-weight: bold;
 }
 
+.signup-link a:hover {
+  border-bottom: 0.5px solid rgba(138, 138, 138, 1);
+}
+
 .div-line {
   border-bottom: 1px solid rgba(222, 222, 222, 1);
   margin: 30px auto 15px;
   width: 110px;
-  
+
 }
