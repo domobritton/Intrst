@@ -25,6 +25,10 @@ class LoginForm extends React.Component {
   }
 
   errorsMessage() {
+    console.log(this.props.errors);
+    if (this.props.errors === 'undefined') {
+      return null;
+    }
     return (
       <ul>
       {this.props.errors.map((error, idx) => {
@@ -75,7 +79,6 @@ class LoginForm extends React.Component {
           <img className='logo' src={window.logo} alt='logo'/>
           <h3>Log in to see more</h3>
           <h4>Access Intrst's best ideas</h4>
-          <p>{this.errorsMessage}</p>
           <form
             className='inner-form'
             onSubmit={this.handleSubmit}>
@@ -112,6 +115,7 @@ class LoginForm extends React.Component {
               <div className='signup-link'>
                 {this.props.navLink}
               </div>
+              <div className="errors">{this.errorsMessage()}</div>
             </div>
           </form>
         </div>

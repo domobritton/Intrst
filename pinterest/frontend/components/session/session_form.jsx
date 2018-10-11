@@ -31,6 +31,10 @@ class SessionForm extends React.Component {
   }
 
   errorsMessage() {
+    if (this.props.errors === 'undefined') {
+      return null;
+    }
+
     return (
       <ul>
       {this.props.errors.map((error, idx) => {
@@ -95,7 +99,6 @@ class SessionForm extends React.Component {
           <img className='logo' src={window.logo} alt='logo'/>
           <h3>Welcome to Intrst</h3>
           <h4>Find new ideas to try</h4>
-          <p>{this.errorsMessage}</p>
           <form
             className='inner-form'
             onSubmit={this.handleSubmit}>
@@ -143,6 +146,7 @@ class SessionForm extends React.Component {
               type='button' onClick={this.handleGuest}>
             </button>
           </form>
+          <div className="errors">{this.errorsMessage()}</div>
         </div>
       </div>
     );

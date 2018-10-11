@@ -7,7 +7,7 @@ import { clearErrors } from '../../actions/session_actions';
 
 const msp = (state) => {
   return {
-    errors: state.errors.session,
+    errors: state.errors,
     formType: 'Continue',
     navLink: <Link to='/login' style={{ textDecoration: 'none', color: '#717171' }}>Log in</Link>
   };
