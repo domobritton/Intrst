@@ -4,7 +4,6 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import { Switch, Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { NoMatch } from './header/no_match';
 
 const App = () => {
   return (
