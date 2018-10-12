@@ -14,7 +14,7 @@ class Masonry extends React.PureComponent{
 
 		return (
 			<div className='container'>
-				<div className='masonry-container'>
+				<div id='masonry-container' className='masonry-container'>
 					<MasonryGrid breakPoints={breakPoints}>
 						{images.map((image, id) => {
 							return (
