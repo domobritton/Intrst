@@ -6,7 +6,7 @@ class MasonryGrid extends React.Component{
 		this.state = {columns: 1};
 		this.onResize = this.onResize.bind(this);
 	}
-  
+
 	componentDidMount(){
 		this.onResize();
 		window.addEventListener('resize', this.onResize);
@@ -32,8 +32,8 @@ class MasonryGrid extends React.Component{
 		for(let i = 0; i < numC; i++){
 			col.push([]);
 		}
-		return this.props.children.reduce((p,c,i) => {
-			p[i%numC].push(c);
+		return this.props.children.reduce((p, c, i) => {
+			p[i % numC].push(c);
 			return p;
 		}, col);
 	}
@@ -41,9 +41,9 @@ class MasonryGrid extends React.Component{
 	render(){
 		return (
 			<div className='masonry' ref='Masonry'>
-				{this.mapChildren().map((col, ci) => {
+				{this.mapChildren().map((col, idx) => {
 					return (
-						<div className='column' key={ci} >
+						<div className='column' key={idx} >
 							{col.map((child, i) => {
 								return <div key={i} >{child}</div>;
 							})}

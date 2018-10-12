@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+// import * as PinsApiUtil from './util/pins_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
+  // window.createPin = PinsApiUtil.createPin;
+  // window.fetchPins = PinsApiUtil.fetchPins;
   ReactDOM.render(<Root store={store} />, root);
 });

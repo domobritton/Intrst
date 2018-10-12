@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from "react-router";
+import { withRouter } from 'react-router';
 import Masonry from '../masonry/masonry';
 
 class LoginForm extends React.Component {
@@ -104,20 +104,27 @@ class LoginForm extends React.Component {
               type='submit'
               value={this.props.formType}>
             </input>
-            <br />
-            <input
-              type='submit'
-              onClick={this.guestLogin}
-              value='Demo Login'>
-            </input>
+            </div>
+          </form>
+          <form>
+            <div className='submit-btn'>
+              <input
+                type='submit'
+                onClick={this.guestLogin}
+                value='Demo Login'>
+              </input>
+            </div>
+            <button
+              id='login'
+              type='button' onClick={this.handleGuest}>
+            </button>
             <br />
               <div className='div-line'></div>
               <div className='signup-link'>
                 {this.props.navLink}
               </div>
-              <div className="errors">{this.errorsMessage()}</div>
-            </div>
           </form>
+          <div className="errors">{this.errorsMessage()}</div>
         </div>
       </div>
     );
