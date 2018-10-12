@@ -2,7 +2,7 @@ import React from 'react';
 import MasonryGrid from './masonry_grid';
 import Tile from './masonry_grid_item';
 
-class Masonry extends React.Component{
+class Masonry extends React.PureComponent{
 	render(){
     let breakPoints = [350, 500, 750];
     let images = [];

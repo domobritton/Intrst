@@ -1,6 +1,6 @@
 import React from 'react';
 
-class MasonryGrid extends React.Component{
+class MasonryGrid extends React.PureComponent{
 	constructor(props){
 		super(props);
 		this.state = {columns: 1};

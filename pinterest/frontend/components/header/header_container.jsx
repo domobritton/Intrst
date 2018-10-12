@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
-import Greeting from './greeting';
+import Header from './header';
 
 const msp = ({ session, entities: { users } }) => {
   return {
@@ -15,4 +15,4 @@ const mdp = dispatch => {
   };
 };
 
-export default connect(msp, mdp)(Greeting);
+export default connect(msp, mdp)(Header);

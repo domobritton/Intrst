@@ -25,7 +25,6 @@ class LoginForm extends React.Component {
   }
 
   errorsMessage() {
-    console.log(this.props.errors);
     if (this.props.errors === 'undefined') {
       return null;
     }
@@ -45,13 +44,13 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user).then(()=>this.props.history.push('/'));
   }
 
   guestLogin() {
     const email = 'guest@guest.com'.split('');
     const password = 'Aacademy'.split('');
-    const button = document.getElementById('login');
+    const button = document.getElementById('login2');
     this.setState({email: '', password: ''}, () => (
       this.loginHelper(email, password, button)
     ));
@@ -115,7 +114,7 @@ class LoginForm extends React.Component {
               </input>
             </div>
             <button
-              id='login'
+              id='login2'
               type='button' onClick={this.handleGuest}>
             </button>
             <br />
@@ -132,5 +131,3 @@ class LoginForm extends React.Component {
 }
 
 export default withRouter(LoginForm);
-
-// https://source.unsplash.com/random
