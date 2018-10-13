@@ -42,6 +42,12 @@ export const fetchPin = (id) => dispatch => (
   ))
 );
 
+export const createPin = (pin) => dispatch => (
+  PinsAPIUtil.createPin(pin).then(pinFromServer => dispatch(receivePin(pinFromServer)),
+  err => (dispatch(pinErrors(err.responseJSON))
+  ))
+);
+
 export const deletePin = (id) => dispatch => (
   PinsAPIUtil.deletePin(id).then(pin => dispatch(removePin(pin)),
   err => (dispatch(pinErrors(err.responseJSON))

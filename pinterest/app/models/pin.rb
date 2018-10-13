@@ -19,4 +19,6 @@ class Pin < ApplicationRecord
   class_name: :User
 
   belongs_to :board
+
+  has_one_attached :image
 end
