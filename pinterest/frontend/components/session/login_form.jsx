@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
 
   errorsMessage() {
     if (this.props.errors === 'undefined') {
-      return null;
+      return;
     }
     return (
       <ul>

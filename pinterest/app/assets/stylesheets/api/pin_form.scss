@@ -97,6 +97,7 @@ h1 {
 
 .pin-upload-inner p {
   font-size: 16px;
+  line-height: 1.2;
   color: #333;
   text-align: center;
   word-wrap: break-word;
@@ -110,7 +111,11 @@ h1 {
   position: relative;
   margin-left: 340px;
 }
-
+.label {
+  color: #333;
+  font-size: 16px;
+  font-weight: 200;
+}
 .website {
   height: 40px;
   width: 360px;
@@ -129,6 +134,10 @@ h1 {
   cursor: text;
   border-radius: 4px;
   resize: none;
+}
+
+::placeholder {
+  color: #b3b3b3;
 }
 
 .create-pin-footer {
