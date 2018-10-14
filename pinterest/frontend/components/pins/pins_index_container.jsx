@@ -1,25 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PinsIndex from './pins_index';
-import { clearPinErrors } from '../../actions/pin_actions';
+import { fetchPins, clearPinErrors } from '../../actions/pin_actions';
 
-const msp = (state) => {
-  return {
-    pins: [
-      'https://source.unsplash.com/user/theburbgirl',
-      'https://source.unsplash.com/user/stilclassics',
-      'https://source.unsplash.com/user/petebellis',
-      'https://source.unsplash.com/user/tonyross',
-      'https://source.unsplash.com/user/zohre_nemati',
-      'https://source.unsplash.com/user/mfrattaroli',
-      'https://source.unsplash.com/user/renatafraga',
-      'https://source.unsplash.com/user/clemono2'
-    ]
-  };
+
+const msp = ({ entities }) => {
+  let result = Object.values(entities.pins);
+  let pins = result.map(pin => pin.imageUrl);
+  return {pins};
 };
 
 const mdp = dispatch => {
   return {
+    fetchPins: () => dispatch(fetchPins()),
     clearPinErrors: () => dispatch(clearPinErrors())
   };
 };

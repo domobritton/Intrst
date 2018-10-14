@@ -78,7 +78,6 @@ h1 {
   margin-top: 25px;
   left: 80px;
   outline: none;
-  padding: 0;
   position: absolute;
   border: 2px dashed rgba(142, 142, 142, 1);
   border-radius: 10px;
@@ -111,11 +110,13 @@ h1 {
   position: relative;
   margin-left: 340px;
 }
+
 .label {
   color: #333;
   font-size: 16px;
   font-weight: 200;
 }
+
 .website {
   height: 40px;
   width: 360px;
@@ -163,4 +164,49 @@ h1 {
   font-size: 16px;
   font-weight: 700;
   background-color: #efefef;
+}
+
+.real-upload {
+  font-size: 28px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 2;
+  width: 236px;
+  height: 371px;
+}
+
+.pin-upload-outer .fake-upload {
+  cursor: pointer;
+  margin-top: 55%;
+  height: 371px;
+}
+
+.pin-upload-outer .fake-upload input {
+  width: 236px;
+  height: 371px;
+}
+
+.form-left {
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 235px;
+  height: 371px;
+  border-radius: 10px;
+}
+.thumbnail-outer {
+  position: relative;
+  overflow: hidden;
+  width: 235px;
+  height: 371px;
+  border-radius: 10px;
+}
+
+.img-thumbnail {
+  overflow: hidden;
+  border-radius: 10px;
 }

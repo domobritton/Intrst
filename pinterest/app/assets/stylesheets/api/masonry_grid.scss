@@ -21,10 +21,11 @@
 	justify-content: flex-start;
 	align-content: stretch;
 	flex-grow: 1;
+	max-width: 26%;
 }
 
 .tile {
-	margin: 12px;
+	margin: 10px;
 	img{
 		border-radius: 10px;
 		width: 100%;

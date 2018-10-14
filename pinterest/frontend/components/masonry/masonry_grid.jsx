@@ -19,6 +19,9 @@ class MasonryGrid extends React.PureComponent{
 	}
 
 	onResize(){
+		if (this.refs.Masonry === undefined) {
+			return null;
+		}
 		const columns = this.getColumns(this.refs.Masonry.offsetWidth);
 		if(columns !== this.state.columns){
 			this.setState({columns: columns});

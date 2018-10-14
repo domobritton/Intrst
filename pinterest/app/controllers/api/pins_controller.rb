@@ -6,12 +6,10 @@ class Api::PinsController < ApplicationController
   end
 
   def create
-    debugger
     @pin = Pin.new(pin_params)
     @pin.author_id = current_user.id
     if @pin.save
-      render json: {message: 'you did it'}
-      # render 'api/pins/show'
+      render 'api/pins/show'
     else
       render json: @pin.errors.full_messages, status: 422
     end
@@ -35,6 +33,3 @@ class Api::PinsController < ApplicationController
     params.require(:pin).permit(:comment, :url, :image, :board_id)
   end
 end
-
-# need changes here for AWS of image_url
-# in create destroy methods and in params

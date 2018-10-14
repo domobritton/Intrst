@@ -16,36 +16,48 @@ class CreatePinForm extends React.Component {
   }
 
   imagePreview() {
-    console.log(this.state.image);
     if (this.state.image === null) {
       return (
         <div className='form-left'>
-          <input
-            className='pin-upload-outer'
-            type='file'
-            onChange={this.handleFile.bind(this)}></input>
+          <div className='pin-upload-outer'>
+            <div className='fake-upload'>
             <i className='fas fa-camera'></i>
             <div className='pin-upload-inner'>
               <p>Drag and drop or click to upload</p>
             </div>
+            </div>
+            <input
+              className='real-upload'
+              type='file'
+              onChange={this.handleFile.bind(this)} />
+            </div>
         </div>
       );
-      } else {
+    } else if (this.state.imageUrl){
         return (
           <div className='form-left'>
             <div className='pin-upload-outer'>
-              <img className='img-thumbnail'
-                   width='150'
-                   height='150'
-                   src={this.state.image}/>
+              <div className='thumbnail-outer'>
+                <img className='img-thumbnail'
+                     src={this.state.imageUrl}/>
+              </div>
             </div>
           </div>
       );
+    } else {
+      return null;
     }
   }
 
   handleFile(e) {
-    this.setState({image: e.currentTarget.files[0]});
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({image: file, imageUrl: fileReader.result});
+    };
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   renderErrors() {
@@ -61,7 +73,7 @@ class CreatePinForm extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearErrors();
+    this.props.clearPinErrors(this.props.errors);
   }
 
 

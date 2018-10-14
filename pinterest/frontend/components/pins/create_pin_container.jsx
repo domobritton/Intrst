@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CreatePinForm from './create_pin_form';
-// import { createPin, pinErrors } from './../../actions/pin_actions';
+import { createPin, pinErrors, clearPinErrors } from './../../actions/pin_actions';
 
 
 const msp = (state) => {
@@ -12,7 +12,8 @@ const msp = (state) => {
 const mdp = dispatch => {
   return {
     // createPin: formData => dispatch(createPin(formData)),
-    // pinErrors: errors => dispatch(pinErrors(errors))
+    pinErrors: errors => dispatch(pinErrors(errors)),
+    clearPinErrors: (errors) => dispatch(clearPinErrors(errors))
   };
 };
 
