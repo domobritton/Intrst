@@ -1,9 +1,6 @@
 .masonry-container {
-	width: 90%;
+	width: 100%;
 	margin: auto;
-	padding-top: 6px;
-  height: 100vh;
-  width: 100vw;
 }
 
 .masonry {
@@ -24,10 +21,60 @@
 	max-width: 26%;
 }
 
+@media all and (min-width: 718px) and (max-width: 900px) {
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-content: stretch;
+		flex-grow: 1;
+		max-width: 33%;
+	}
+}
+
+@media all and (max-width: 717px) {
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-content: stretch;
+		flex-grow: 1;
+		max-width: 50%;
+	}
+}
+
+@media all and (max-width: 500px) {
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-content: stretch;
+		flex-grow: 1;
+		max-width: 100%;
+	}
+}
+
 .tile {
 	margin: 10px;
 	img{
 		border-radius: 10px;
 		width: 100%;
 	}
+}
+
+div.masonry-container {
+  animation: 220s slide-up;
+  margin-top: -100%;
+}
+
+@keyframes slide-up {
+  from {
+    margin-top: 0%;
+    height: 300%;
+  }
+
+  to {
+    margin-top: -100%;
+    height: 100%;
+  }
 }

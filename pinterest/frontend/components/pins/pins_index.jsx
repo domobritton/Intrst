@@ -24,7 +24,7 @@ class PinsIndex extends React.Component {
 
       if (
         window.innerHeight + document.documentElement.scrollTop
-        >= document.documentElement.offsetHeight
+        >= document.documentElement.offsetHeight - 1000
       ) {
         this.loadPins();
       }
@@ -56,11 +56,11 @@ class PinsIndex extends React.Component {
 
   render() {
     const { hasMore, pins } = this.state;
-    let breakPoints = [350, 500, 1150];
+    let breakPoints = [500, 700, 1150];
     return (
       <div>
         <div id='pinsIndexWrapper'>
-          <div id='masonry-container' className='masonry-container'>
+          <div className='feed-masonry-container'>
             <MasonryGrid breakPoints={breakPoints}>
               {pins.map((image, id) => {
                  return image !== undefined ?

@@ -7,7 +7,7 @@ class Masonry extends React.PureComponent{
     let breakPoints = [350, 500, 750];
     let images = [];
 
-    for(let i = 0; i < 20; i++){
+    for(let i = 0; i < 50; i++){
       let randomNum = Math.floor(Math.random() * 1000);
       images.push('https://source.unsplash.com/random?' + `sig=${randomNum}`);
     }
@@ -18,7 +18,7 @@ class Masonry extends React.PureComponent{
 					<MasonryGrid breakPoints={breakPoints}>
 						{images.map((image, id) => {
 							return (
-								<Tile src={image} />
+								<Tile key={id} src={image} />
 							);
 						})}
 					</MasonryGrid>

@@ -11,10 +11,10 @@ const App = () => {
   return (
       <div>
           <ProtectedRoute path='/' component={HeaderContainer} />
-
+          <Switch>
           <AuthRoute exact path='/signup' component={SignupFormContainer} />
           <AuthRoute exact path='/login' component={LoginFormContainer} />
-          <Switch>
+
           <ProtectedRoute exact path='/pins' component={CreatePinFormContainer} />
           <ProtectedRoute exact path='/' component={PinsIndexContainer} />
         </Switch>

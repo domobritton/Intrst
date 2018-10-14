@@ -26,7 +26,9 @@ class MasonryGrid extends React.PureComponent{
 		if(columns !== this.state.columns){
 			this.setState({columns: columns});
 		}
-
+    if(window.innerWidth < 500) {
+			this.setState({columns: 1});
+		}
 	}
 
 	mapChildren(){

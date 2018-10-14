@@ -1,4 +1,16 @@
-#pinsIndexWrapper .masonry-container {
-  margin-top: 70px;
+#pinsIndexWrapper {
+  padding-top: 80px;
+}
+
+#pinsIndexWrapper .feed-masonry-container {
   width: 80%;
+  margin: auto;
+}
+
+
+@media all and (max-width: 900px) {
+  #pinsIndexWrapper {
+    width: 90%;
+    margin: auto;
+  }
 }
