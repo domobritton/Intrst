@@ -16,7 +16,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
   fetchPin: (id) => dispatch(fetchPin(id)),
-  openModal: (modal) => dispatch(openModal(modal)),
+  openModal: (modal) => dispatch(openModal(modal))
 });
 
 

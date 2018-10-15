@@ -108,10 +108,12 @@
   z-index: 1;
 }
 
-.login-btn a {
+.login-btn p {
   line-height: 14px;
   font-size: 14px;
   font-weight: bold;
+  text-decoration: none;
+  color: #717171;
 }
 
 .signup-link a {

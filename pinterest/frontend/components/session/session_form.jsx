@@ -92,8 +92,10 @@ class SessionForm extends React.Component {
     return (
       <div className='session-page'>
         <Masonry />
-        <div className='login-btn'>
-          {this.props.navLink}
+        <div
+          className='login-btn'
+          onClick={() => this.props.openModal({modal: 'ShowLogin'})}>
+          <p>Log in</p>
         </div>
         <div className='session-form'>
           <img className='logo' src={window.logo} alt='logo'/>

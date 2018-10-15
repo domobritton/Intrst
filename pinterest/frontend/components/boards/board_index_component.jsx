@@ -1,7 +1,7 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
 import {  Link, withRouter } from 'react-router-dom';
-import PinsSpecialComponent from '../pins/pin_special_component';
+// import PinsUser from '../pins/pins_user';
 import  { Redirect } from 'react-router-dom';
 
 

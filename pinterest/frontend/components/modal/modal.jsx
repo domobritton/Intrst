@@ -1,12 +1,12 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import CreatePinContainer from './../pins/create_pin_container';
-import SavePinContainer from './../pins/save_pin_container';
-
-import PinShowContainer from './../pins/pin_show_container';
-import CreateBoardContainer from './../boards/create_board_container';
-import EditBoardContainer from './../boards/edit_board_container';
+import LoginFormContainer from '../session/login_form_container';
+import CreatePinContainer from '../pins/create_pin_container';
+import SavePinContainer from '../pins/save_pin_container';
+import PinShowContainer from '../pins/pin_show_container';
+import CreateBoardContainer from '../boards/create_board_container';
+import EditBoardContainer from '../boards/edit_board_container';
 
 const Modal = (props) => {
   if (!props.modal){
@@ -17,6 +17,9 @@ const Modal = (props) => {
   let component;
 
   switch(props.modal.modal){
+    case 'ShowLogin':
+      component = <LoginFormContainer />;
+      break;
     case 'ShowPin':
       component = <PinShowContainer />;
       break;

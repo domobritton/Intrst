@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 import SignupFormContainer from '../session/signup_form_container';
 import Menu from './header_items';
 
+
 const Header = ({currentUser, logout}) => {
-    const sessionLinks = () => (
+    const sessionLinks = () => {
+      return (
       <div>
         <SignupFormContainer />
       </div>
-    );
+      );
+    };
 
     const nav = () => (
       <div className='header'>

@@ -2,8 +2,8 @@
   json.boards do
     json.set! board.id do
       json.extract! board, :id, :title
-      json.author_id board.author.id
-      json.author_username board.author.username
+      json.author_id board.author_id
+      json.author_username board.author_id.username
     end
   end
 end
