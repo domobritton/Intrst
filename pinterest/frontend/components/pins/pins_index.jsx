@@ -56,7 +56,6 @@ class PinsIndex extends React.Component {
 
   render() {
     const { hasMore, pins } = this.state;
-    console.log(pins);
     let breakPoints = [500, 700, 1150];
     return (
       <div>
