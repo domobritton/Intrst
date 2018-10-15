@@ -13,7 +13,9 @@ const Header = ({currentUser, logout}) => {
     const nav = () => (
       <div className='header'>
         <div className='logo-outer'>
-        <img className='nav-logo' src={window.logo} alt='Intrst logo'/>
+        <Link to="/">
+          <img className='nav-logo' src={window.logo} alt='Intrst logo'/>
+        </Link>
         </div>
         <div className='search'>
         <span className='fa fa-search'></span>

@@ -86,7 +86,6 @@ class CreatePinForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    debugger;
     let formData = new FormData();
     formData.append('pin[comment]', this.state.comment);
     formData.append('pin[url]', this.state.url);
@@ -94,22 +93,10 @@ class CreatePinForm extends React.Component {
     if (this.state.image) {
       formData.append('pin[image]', this.state.image);
     }
-    $.ajax({
-      url: 'api/pins',
-      method: 'POST',
-      data: formData,
-      contentType: false,
-      processData: false
-    }).then(
-      (response) => console.log(response.message),
-      (response) => {
-      console.log(response.responseJSON);
-      }
-    );
+    this.props.createPin(formData);
   }
 
   render() {
-    console.log(this.state);
     let submitBtn;
     if (this.state.image === null) {
       submitBtn = 'submit-btn';
@@ -127,7 +114,7 @@ class CreatePinForm extends React.Component {
           {this.renderErrors()}
             <div className='close'>
               <span
-                className="close-modal"
+                className='close-modal'
                 onClick={() => this.props.closeModal()}>
                 <i className='fas fa-times'></i>
               </span>
@@ -144,15 +131,15 @@ class CreatePinForm extends React.Component {
               placeholder="Add the URL this Pin links to" onChange={this.update('url')}/>
             <label><div className='label'>Description</div></label>
             <textarea
-              className='description'
+              className='comment'
               type='text'
-              value={this.state.description}
-              placeholder="Say more about this Pin" onChange={this.update('description')}>
+              value={this.state.comment}
+              placeholder="Say more about this Pin" onChange={this.update('comment')}>
             </textarea>
           </div>
           <div className='create-pin-footer'>
             <div className='done-btn'>
-              <input className={submitBtn} type="submit" value='Done'/>
+              <input className={submitBtn} type='submit' value='Done'/>
             </div>
           </div>
         </form>

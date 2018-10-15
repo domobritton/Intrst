@@ -22,16 +22,15 @@ export const fetchPin = id => (
 //   })
 // );
 
-// export const createPin = formData => {
-//   debugger;
-//   return $.ajax({
-//     url: '/api/pins',
-//     method: 'POST',
-//     data: formData,
-//     contentType: false,
-//     processData: false
-//   });
-// };
+export const createPin = formData => {
+  return $.ajax({
+    url: '/api/pins',
+    method: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false
+  });
+};
 
 export const deletePin = id => (
   $.ajax({

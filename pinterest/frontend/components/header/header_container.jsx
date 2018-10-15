@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Header from './header';
+import { openModal } from '../../actions/modal_actions';
 
 const msp = ({ session, entities: { users } }) => {
+  console.log(users);
   return {
     currentUser: users[session.id]
   };

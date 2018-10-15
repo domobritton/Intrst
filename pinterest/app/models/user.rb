@@ -20,8 +20,15 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :pins 
-  has_many :boards
+  has_many :pins,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: :Pin
+
+  has_many :boards,
+  primary_key: :id,
+  foreign_key: :author_id,
+  class_name: :Board
 
   after_initialize :ensure_session_token
 

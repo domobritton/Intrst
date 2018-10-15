@@ -42,19 +42,13 @@ export const fetchPin = (id) => dispatch => (
   ))
 );
 
-// export const createPin = (formData) => dispatch => (
-//   PinsAPIUtil.createPin(formData).then(pinFromServer => dispatch(receivePin(pinFromServer)),
-//   err => (dispatch(pinErrors(err.responseJSON))
-//   ))
-// );
-// export const createPin = (formData) => {
-//   debugger;
-//   return dispatch => {
-//     return PinsAPIUtil.createPin(formData).then(pinFromServer => {
-//       return dispatch(receivePin(pinFromServer));
-//     });
-//   };
-// };
+export const createPin = (formData) => {
+  return dispatch => {
+    return PinsAPIUtil.createPin(formData).then(pinFromServer => {
+      return dispatch(receivePin(pinFromServer));
+    });
+  };
+};
 
 export const deletePin = (id) => dispatch => (
   PinsAPIUtil.deletePin(id).then(pin => dispatch(removePin(pin)),

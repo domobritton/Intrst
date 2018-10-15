@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import CreatePinForm from './create_pin_form';
-import { createPin, pinErrors, clearPinErrors } from './../../actions/pin_actions';
+import {
+  createPin,
+  pinErrors,
+  clearPinErrors } from '../../actions/pin_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 
 const msp = (state) => {
@@ -11,8 +15,9 @@ const msp = (state) => {
 
 const mdp = dispatch => {
   return {
-    // createPin: formData => dispatch(createPin(formData)),
-    pinErrors: errors => dispatch(pinErrors(errors)),
+    createPin: (formData) => dispatch(createPin(formData)),
+    pinErrors: (errors) => dispatch(pinErrors(errors)),
+    closeModal: () => dispatch(closeModal()),
     clearPinErrors: (errors) => dispatch(clearPinErrors(errors))
   };
 };
