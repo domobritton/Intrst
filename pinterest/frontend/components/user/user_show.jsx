@@ -33,13 +33,10 @@ class UserShow extends React.Component{
     };
   }
 
-
-
   render(){
-
     const components = {
       'pinsUserContainer': <PinsUserContainer />,
-    'boardIndexContainer': <BoardIndexContainer />
+      'boardIndexContainer': <BoardIndexContainer />
     };
     const chosenComponent = this.state.component;
     return (

@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignupFormContainer from '../session/signup_form_container';
 import Menu from './header_items';
+import Masonry from '../masonry/masonry';
 
 
-const Header = ({currentUser, logout}) => {
+const Header = ({currentUser, logout, openModal, closeModal}) => {
     const sessionLinks = () => {
       return (
       <div>
-        <SignupFormContainer />
+        <Masonry />
       </div>
       );
     };
@@ -31,7 +32,14 @@ const Header = ({currentUser, logout}) => {
       </div>
     );
 
-    return currentUser ? nav() : sessionLinks();
+    if (currentUser) {
+      closeModal();
+      return nav();
+    } else {
+      openModal({modal: 'ShowSignup'});
+      return sessionLinks();
+    }
+
 };
 
 export default Header;

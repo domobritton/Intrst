@@ -14,3 +14,39 @@
     margin: auto;
   }
 }
+
+.save-btn {
+  position: absolute;
+  opacity: 0;
+  top: 8px;
+  right: 8px;
+  width: 60px;
+  height: 25px;
+  text-align: center;
+  padding: 8px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.pin-save p {
+  position: relative;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  display: inline;
+  margin-top: 6px;
+  letter-spacing: 0.2em;
+  top: 5px;
+  left: 2px;
+}
+
+.pin-save .fa-thumbtack {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 6px;
+  top: 5px;
+  right: 0;
+}

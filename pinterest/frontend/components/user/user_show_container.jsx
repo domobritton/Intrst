@@ -7,6 +7,7 @@ import { fetchBoards } from '../../actions/board_actions';
 
 const msp = (state, ownProps) => {
   const user = state.entities.users[ownProps.match.params.id];
+  debugger;
   return {
     user: user,
     boards: Object.values(user.boards || {}),

@@ -4,13 +4,12 @@ import SessionForm from './session_form';
 import { signup, login } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 import { clearErrors } from '../../actions/session_actions';
-import { openModal } from '../../actions/modal_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
   return {
     errors: state.errors,
-    formType: 'Continue',
-    // navLink: <Link to='/login' style={{ textDecoration: 'none', color: '#717171' }}>Log in</Link>
+    formType: 'Continue'
   };
 };
 
@@ -19,7 +18,8 @@ const mdp = dispatch => {
     guest: (user) => dispatch(login(user)),
     processForm: (user) => dispatch(signup(user)),
     clearErrors: () => dispatch(clearErrors()),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal)),
+    closeModal: (modal) => dispatch(closeModal())
   };
 };
 

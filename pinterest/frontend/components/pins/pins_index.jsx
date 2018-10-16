@@ -62,11 +62,39 @@ class PinsIndex extends React.Component {
         <div id='pinsIndexWrapper'>
           <div className='feed-masonry-container'>
             <MasonryGrid breakPoints={breakPoints}>
-              {pins.map((image, id) => {
-                 return image !== undefined ?
+
+              {pins.map((pin, id) => {
+                 return pin.imageUrl !== undefined ?
                 (
-                  <Tile key={id} src={image} />
-                ) : '';
+                  <div
+                    className='pin-show'
+                    onClick={
+                        () => this.props.history.push(`/pin/${pin.id}`)}>
+                    <div className='show-modal'>
+                      <div
+                        className='pin-save'
+                        onClick={(e) => {e.preventDefault(); this.props.openModal({modal: 'SavePin', pin: pin});}}>
+                        <div>
+                          <Tile key={id} src={pin.imageUrl} comment={pin.comment} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) :
+                <div
+                  className='pin-show'
+                  onClick={
+                      () => this.props.history.push(`/pin/${id}`)}>
+                  <div className='show-modal'>
+                    <div
+                      className='pin-save'
+                      onClick={(e) => {e.preventDefault(); this.props.openModal({modal: 'SavePin', pin: pin});}}>
+                      <div>
+                        <Tile key={id} src={pin} comment={''}/>;
+                      </div>
+                    </div>
+                  </div>
+                </div>;
               })}
             </MasonryGrid>
           </div>

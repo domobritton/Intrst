@@ -7,6 +7,7 @@ import SavePinContainer from '../pins/save_pin_container';
 import PinShowContainer from '../pins/pin_show_container';
 import CreateBoardContainer from '../boards/create_board_container';
 import EditBoardContainer from '../boards/edit_board_container';
+import SignupFormContainer from '../session/signup_form_container';
 
 const Modal = (props) => {
   if (!props.modal){
@@ -17,6 +18,9 @@ const Modal = (props) => {
   let component;
 
   switch(props.modal.modal){
+    case 'ShowSignup':
+      component = <SignupFormContainer />;
+      break;
     case 'ShowLogin':
       component = <LoginFormContainer />;
       break;
@@ -40,17 +44,17 @@ const Modal = (props) => {
   }
 
 
-  let modalBackground;
-  if(props.modal === 'CreatePin' || props.modal === 'CreateBoard'){
-    modalBackground = {background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) )`};
-  } else {
-    modalBackground = {background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )`};
-
-  }
+  // let modalBackground;
+  // if(props.modal === 'CreatePin' || props.modal === 'CreateBoard'){
+  //   modalBackground = {background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) )`};
+  // } else {
+  //   modalBackground = {background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )`};
+  //
+  // }
 
 
   return (
-    <div className='modal-background' style={modalBackground}>
+    <div className='modal-background'>
       <div className='modal-child' onClick={e => e.stopPropagation()}>
         { component }
       </div>

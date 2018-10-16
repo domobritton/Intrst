@@ -15,13 +15,12 @@ const App = () => {
     <div>
       <Modal />
       <ProtectedRoute exact path='/pins' component={CreatePinFormContainer} />
-      <ProtectedRoute path='/' component={HeaderContainer} />
+      <Route path='/' component={HeaderContainer} />
       <Switch>
         <ProtectedRoute exact path="/user/:id" component={UserShowContainer} />
-        <AuthRoute exact path='/signup' component={SignupFormContainer} />
-        <AuthRoute exact path='/login' component={LoginFormContainer} />
         <ProtectedRoute exact path='/' component={PinsIndexContainer} />
         <ProtectedRoute exact path='/pin/:id' component={PinShowContainer} />
+
       </Switch>
     </div>
   );

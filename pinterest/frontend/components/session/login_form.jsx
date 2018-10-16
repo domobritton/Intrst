@@ -119,7 +119,11 @@ class LoginForm extends React.Component {
             <br />
               <div className='div-line'></div>
               <div className='signup-link'>
-                {this.props.navLink}
+                <div
+                  className='signup-link'
+                  onClick={() => this.props.openModal({modal: 'ShowSignup'})}>
+                  <p>Not on Intrst yet? Sign Up</p>
+                </div>
               </div>
           </form>
           <div className="errors">{this.errorsMessage()}</div>

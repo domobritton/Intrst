@@ -85,13 +85,13 @@ class SessionForm extends React.Component {
       });
     } else {
       button.click();
+
     }
   }
 
   render() {
     return (
       <div className='session-page'>
-        <Masonry />
         <div
           className='login-btn'
           onClick={() => this.props.openModal({modal: 'ShowLogin'})}>

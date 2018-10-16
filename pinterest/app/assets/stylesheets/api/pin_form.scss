@@ -198,6 +198,7 @@ h1 {
   height: 371px;
   border-radius: 10px;
 }
+
 .thumbnail-outer {
   position: relative;
   overflow: hidden;
@@ -207,6 +208,7 @@ h1 {
 }
 
 .img-thumbnail {
-  overflow: hidden;
+  width: 235px;
+  max-height: 371px;
   border-radius: 10px;
 }

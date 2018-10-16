@@ -3,10 +3,19 @@ import React from 'react';
 class Tile extends React.Component {
 
   render() {
-    const {src} = this.props;
+    const {src, comment} = this.props;
     return (
-      <div className='tile'>
-        <img src={src} />
+      <div className='pin-wrapper'>
+        <div className='tile'>
+          <img src={src} />
+            <div className='save-btn'>
+              <i className="fas fa-thumbtack"></i>
+              <p>Save</p>
+            </div>
+          <div className='tile-comment'>
+            <span>{comment}</span>
+          </div>
+        </div>
       </div>
     );
   }
