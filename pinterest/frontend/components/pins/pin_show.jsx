@@ -36,6 +36,7 @@ class PinShow extends React.Component{
                 <div
                   className='pin-save'
                   onClick={(e) => {e.preventDefault(); this.props.openModal({modal: 'SavePin', pin: this.props.pin});}}>
+                  
                 </div>
 
             </div>

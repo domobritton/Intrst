@@ -15,7 +15,6 @@ import {
 
 const msp = (state, ownProps) => {
   let pins = Object.values(state.entities.boardPins || {});
-  debugger;
   let currentBoard;
   if (ownProps.match.path === "/user/:id/boards/:id/pins") {
     currentBoard =  state.entities.boards[ownProps.match.params.id];
