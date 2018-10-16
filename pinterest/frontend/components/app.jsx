@@ -20,8 +20,8 @@ const App = () => {
       <Switch>
         <ProtectedRoute exact path="/user/:id" component={UserShowContainer} />
         <ProtectedRoute exact path='/user/:id/boards/:id/pins' component={PinsUserContainer}/>
-        <ProtectedRoute exact path='/' component={PinsIndexContainer} />
         <ProtectedRoute exact path='/pin/:id' component={PinShowContainer} />
+        <ProtectedRoute exact path='/' component={PinsIndexContainer} />
 
       </Switch>
     </div>

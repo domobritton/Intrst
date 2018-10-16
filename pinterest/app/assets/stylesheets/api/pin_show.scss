@@ -1,0 +1,43 @@
+.pin-show-outer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-div {
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  background-color: #eeeeee;
+  z-index: 11;
+  cursor: zoom-out;
+}
+
+.center-div-show {
+  display: flex;
+  margin: auto;
+  margin-top: 20px;
+  width: 704px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 12;
+}
+
+.pin-show-header {
+  height: 80px;
+}
+
+.pin-image {
+  width: 300px;
+  float: left;
+  border-radius: 10px;
+}
+
+.save-btn {
+  
+}

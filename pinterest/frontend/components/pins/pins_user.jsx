@@ -25,6 +25,7 @@ class PinsUser extends React.Component {
 
   displayPins() {
     const { pins } = this.props;
+    debugger;
     let masonryOptions = {
         transitionDuration: 1,
         gutter: 20,

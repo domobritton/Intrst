@@ -16,8 +16,6 @@ class PinShow extends React.Component{
   }
 
   render(){
-    let author = this.props.pin_author;
-    author = author[0].toUpperCase() + author.slice(1);
 
     if (this.props.pin){
       let val;
@@ -29,13 +27,17 @@ class PinShow extends React.Component{
       }
 
     return (
+      <div className='pin-show-outer'>
       <div className='show-div' onClick={() => this.props.history.goBack() }>
-        <div>
+          <div className='back-btn'><p>Back</p></div>
+          <div className='center-div-show'>
+            <div className='pin-show-header'>
           <div className='save-pin'>
-            <div
-              className='save-btn'
-              onClick={() => this.props.openModal({modal: 'SavePin', pin: this.props.pin} )}>
-              <img src={window.savebutton} className='savebutton'/>
+                <div
+                  className='pin-save'
+                  onClick={(e) => {e.preventDefault(); this.props.openModal({modal: 'SavePin', pin: this.props.pin});}}>
+                </div>
+
             </div>
           </div>
           <div className='pin-comment'>{this.props.pin.comment}</div>
@@ -48,11 +50,11 @@ class PinShow extends React.Component{
             <img src={this.props.pin.author_image}/>
           </div>
           <div className='author'>
-            <strong>{author}</strong>&nbsp; saved pin to board
           </div>
-        </div>
-      </div>
+          </div>
 
+      </div>
+      </div>
       );
     } else {
       return null;
