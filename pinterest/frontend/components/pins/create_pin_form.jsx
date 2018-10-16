@@ -9,7 +9,7 @@ class CreatePinForm extends React.Component {
       url: '',
       imageUrl: null,
       image: null,
-      board_id: 1
+      board_id: 4
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
