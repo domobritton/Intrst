@@ -38,17 +38,24 @@ class UserShow extends React.Component{
       'pinsUserContainer': <PinsUserContainer />,
       'boardIndexContainer': <BoardIndexContainer />
     };
+    const { firstname, lastname, username, imageUrl } = this.props.user;
     const chosenComponent = this.state.component;
     return (
       <div className='profile-outer'>
         <div className='profile-upper'>
           <div className='profile-name'>
-          <h2>Guest Love</h2>
+            {firstname ?
+            <h2>
+            {`${firstname} ${lastname}`}
+          </h2> : <h2>{`${username} Love`}</h2>}
+
           </div>
           <div className='profile-image-outer'>
+            {imageUrl ?
+            <img src={imageUrl} /> :
             <img
               className='profile-image'
-              src='https://source.unsplash.com/user/yiwen0316'/>
+              src='https://source.unsplash.com/user/yiwen0316'/>}
           </div>
         </div>
         <div className='profile-btns'>

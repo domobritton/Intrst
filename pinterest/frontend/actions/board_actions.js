@@ -60,11 +60,19 @@ export const fetchBoardsPins = () => dispatch => (
   ))
 );
 
-export const fetchBoardPin = (id) => dispatch => (
-  boardAPIUtil.fetchBoard(id).then(pins => dispatch(receiveBoardPins(pins)),
-  err => (dispatch(receiveBoardErrors(err.responseJSON))
-  ))
-);
+// export const fetchBoardPin = (id) => dispatch => (
+//   boardAPIUtil.fetchBoard(id).then(pins => dispatch(receiveBoardPins(pins)),
+//   err => (dispatch(receiveBoardErrors(err.responseJSON))
+//   ))
+// );
+
+export const fetchBoardPin = (id) => {
+  return dispatch => {
+    return boardAPIUtil.fetchBoard(id).then(pins => {
+      return dispatch(receiveBoardPins(pins));
+    });
+  };
+};
 
 export const createBoard = (board) => (dispatch) => (
   boardAPIUtil.createBoard(board).then(boardFromServer => dispatch(receiveBoard(boardFromServer)),

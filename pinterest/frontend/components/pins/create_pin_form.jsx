@@ -36,7 +36,7 @@ class CreatePinForm extends React.Component {
     } else if (this.state.imageUrl){
         return (
           <div className='form-left'>
-            <div className='pin-upload-outer'>
+            <div className='pin-upload-outer-ready'>
               <div className='thumbnail-outer'>
                 <img className='img-thumbnail'
                      src={this.state.imageUrl}/>
@@ -97,10 +97,12 @@ class CreatePinForm extends React.Component {
   }
 
   render() {
-    let submitBtn;
+    let submitBtn, doneBtn;
     if (this.state.image === null) {
+      doneBtn = 'done-btn';
       submitBtn = 'submit-btn';
     } else {
+      doneBtn = 'done-btn-red';
       submitBtn = 'submit-btn-red';
     }
     return (
@@ -138,7 +140,7 @@ class CreatePinForm extends React.Component {
             </textarea>
           </div>
           <div className='create-pin-footer'>
-            <div className='done-btn'>
+            <div className={doneBtn}>
               <input className={submitBtn} type='submit' value='Done'/>
             </div>
           </div>

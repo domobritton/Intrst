@@ -15,9 +15,8 @@
   height: 100vh;
   max-height: 100vh;
   display: block;
-  z-index: 0;
-  background-color: #333;
-  opacity: 0.9;
+  z-index: 11;
+  background-color: rgba(0,0,0,0.70);
 }
 
 .create-pin-form {
@@ -31,6 +30,7 @@
   left: 0;
   right: 0;
   bottom: 45px;
+  z-index: 12;
 }
 
 h1 {
@@ -84,6 +84,19 @@ h1 {
   cursor: pointer;
 }
 
+.pin-upload-outer-ready {
+  width: 236px;
+  height: 371px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  left: 80px;
+  outline: none;
+  position: absolute;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .pin-upload-outer .fa-camera {
   font-size: 30px;
 }
@@ -126,7 +139,7 @@ h1 {
   border-radius: 4px;
 }
 
-.description {
+.comment {
   height: 166px;
   width: 360px;
   padding-top: 20px;
@@ -159,11 +172,27 @@ h1 {
   border-radius: 5px;
 }
 
+.done-btn-red {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  background-color: #bd081c;
+  padding: 15px;
+  border-radius: 5px;
+}
+
 .submit-btn {
   color: #8e8e8e;
   font-size: 16px;
   font-weight: 700;
-  background-color: #efefef;
+  background-color: #efefef !important;
+}
+
+.submit-btn-red {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #bd081c;
 }
 
 .real-upload {

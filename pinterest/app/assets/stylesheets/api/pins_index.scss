@@ -50,3 +50,41 @@
   top: 5px;
   right: 0;
 }
+
+.pins-outer-container {
+  width: 100vw;
+  height: 100vh;
+  min-height: 800px;
+  margin: 0 auto;
+}
+
+// spinner by https://loading.io.com
+.loading-circle {
+  position: absolute;
+  margin: auto;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: #8e8e8e;
+  animation: loading-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes loading-circle {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}

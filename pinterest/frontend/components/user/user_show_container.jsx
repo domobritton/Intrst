@@ -5,9 +5,8 @@ import { openModal } from '../../actions/modal_actions';
 import { fetchBoards } from '../../actions/board_actions';
 
 
-const msp = (state, ownProps) => {
-  const user = state.entities.users[ownProps.match.params.id];
-  debugger;
+const msp = ({session, entities: { users }}) => {
+  const user = users[session.id];
   return {
     user: user,
     boards: Object.values(user.boards || {}),

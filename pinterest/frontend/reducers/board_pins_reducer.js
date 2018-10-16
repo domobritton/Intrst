@@ -6,6 +6,7 @@ import {
 
 const boardPinsReducer = (state= {}, action) => {
   Object.freeze(state);
+  debugger;
   switch (action.type) {
     case RECEIVE_BOARDSPINS:
       if (action.payload.pins === undefined) return {};

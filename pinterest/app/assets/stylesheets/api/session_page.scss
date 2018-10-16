@@ -1,13 +1,13 @@
-// .session-page {
-//   overflow: hidden;
-//   height: 100vh;
-//   max-height: 100vh;
-//   width: 100vw;
-// }
+.modal-background {
+  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+}
 
 .modal-background::before {
   position: absolute;
-  content:" ";
+  content: "";
   top:0;
   left:0;
   width:100vw;
@@ -17,13 +17,6 @@
   display: block;
   z-index: 1;
   background-color: rgba(0,0,0,0.5);
-}
-
-.modal-background {
-  overflow: hidden;
-  height: 100vh;
-  max-height: 100vh;
-  width: 100vw;
 }
 
 .session-form {

@@ -13,16 +13,13 @@ const Menu = ({currentUser, logout}) => {
       <div className='btn'>
         <Link to={`/user/${currentUser.id}`}>
           <div className='header-user'>
-            {
-              (currentUser.image_url === null)
-              ? <div className='img-user'>
-              <i className='fas fa-user'></i>
+            <div className='header-image-outer'>
+              {currentUser.imageUrl ?
+              <img src={currentUser.imageUrl} /> :
+              <img
+                className='header-profile-image'
+                src='https://source.unsplash.com/user/yiwen0316'/>}
             </div>
-            :
-            <div className='profile-nav'>
-              <img src={currentUser.image_url}/>
-            </div>
-          }
           <div className='profile-nav'>
             {
               currentUser.username[0].toUpperCase() + currentUser.username.slice(1)

@@ -43,16 +43,6 @@ const Modal = (props) => {
       return null;
   }
 
-
-  // let modalBackground;
-  // if(props.modal === 'CreatePin' || props.modal === 'CreateBoard'){
-  //   modalBackground = {background: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) )`};
-  // } else {
-  //   modalBackground = {background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) )`};
-  //
-  // }
-
-
   return (
     <div className='modal-background'>
       <div className='modal-child' onClick={e => e.stopPropagation()}>
