@@ -89,6 +89,7 @@
 }
 
 div.masonry-container {
+	position: fixed;
   animation: 220s slide-up;
   margin-top: -100%;
 }

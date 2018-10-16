@@ -8,9 +8,9 @@
 .modal-background::before {
   position: absolute;
   content: "";
-  top:0;
-  left:0;
-  width:100vw;
+  top: 0;
+  left: 0;
+  width: 100vw;
   overflow: hidden;
   height: 100vh;
   max-height: 100vh;
@@ -28,8 +28,8 @@
   border-radius: 8px;
   text-align: center;
   position: absolute;
-  top: 50px;
-  margin-top: 0;
+  top: 0;
+  margin-top: 50px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -51,11 +51,11 @@
   margin-top: 10px;
 }
 
-.submit-btn {
+.login-submit-btn {
   background-color: rgba(255, 255, 255, 1);
 }
 
-.submit-btn input {
+.login-submit-btn input {
   // background-color: #1eb4de;
   background-color: rgba(189, 8, 28, 1);
   font-size: 15px;

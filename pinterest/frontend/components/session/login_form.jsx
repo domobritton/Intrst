@@ -96,7 +96,7 @@ class LoginForm extends React.Component {
               </input>
               <br />
             </div>
-            <div className='submit-btn'>
+            <div className='login-submit-btn'>
             <input
               id='login'
               type='submit'
@@ -105,7 +105,7 @@ class LoginForm extends React.Component {
             </div>
           </form>
           <form>
-            <div className='submit-btn'>
+            <div className='login-submit-btn'>
               <input
                 type='submit'
                 onClick={this.guestLogin}
