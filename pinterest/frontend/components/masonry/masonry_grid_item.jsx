@@ -17,7 +17,7 @@ class Tile extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -29,16 +29,20 @@ class PinShow extends React.Component{
     return (
       <div className='pin-show-outer'>
       <div className='show-div' onClick={() => this.props.history.goBack() }>
-          <div className='back-btn'><p>Back</p></div>
+          <div className='back-btn'>
+            <span><i className="fas fa-chevron-left"></i><p>Back</p></span></div>
           <div className='center-div-show'>
+            <div className='center-div-inner'>
             <div className='pin-show-header'>
           <div className='save-pin'>
-                <div
-                  className='pin-save'
-                  onClick={(e) => {e.preventDefault(); this.props.openModal({modal: 'SavePin', pin: this.props.pin});}}>
-                  
+              <div
+                className='pin-save'
+                onClick={(e) => {e.preventDefault(); this.props.openModal({modal: 'SavePin', pin: this.props.pin});}}>
+                <div className='save-show-pin'>
+                  <i className="fas fa-thumbtack"></i>
+                  <p>Save</p>
                 </div>
-
+              </div>
             </div>
           </div>
           <div className='pin-comment'>{this.props.pin.comment}</div>
@@ -53,7 +57,7 @@ class PinShow extends React.Component{
           <div className='author'>
           </div>
           </div>
-
+        </div>
       </div>
       </div>
       );
