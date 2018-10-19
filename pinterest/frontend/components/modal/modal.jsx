@@ -50,7 +50,6 @@ const Modal = (props) => {
       </div>
     </div>
   );
-
 };
 
 const mapStateToProps = (state) => {

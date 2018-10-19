@@ -23,10 +23,10 @@ class MasonryGrid extends React.PureComponent{
 			return null;
 		}
 		const columns = this.getColumns(this.refs.Masonry.offsetWidth);
-		if(columns !== this.state.columns){
+		if (columns !== this.state.columns){
 			this.setState({columns: columns});
 		}
-    if(window.innerWidth < 500) {
+    if (window.innerWidth < 500) {
 			this.setState({columns: 1});
 		}
 	}

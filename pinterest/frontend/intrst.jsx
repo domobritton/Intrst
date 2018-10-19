@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-// import * as PinsApiUtil from './util/pins_api_util';
+import Favicon from 'react-favicon';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -20,7 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  // window.createPin = PinsApiUtil.createPin;
-  // window.fetchPins = PinsApiUtil.fetchPins;
-  ReactDOM.render(<Root store={store} />, root);
+
+  ReactDOM.render(
+    <div>
+      <Favicon url='https://raw.githubusercontent.com/domobritton/Intrst/master/pinterest/intrst.ico' />
+      <Root store={store} />
+    </div>
+      , root
+    );
 });
