@@ -85,4 +85,4 @@ Users will be able to see other users profiles and follow users.
 
 ### Mobile friendly header with hamburger menu
 
-Improvements will be made to make the navigation simple and intuitive on mobile devices.
+Improvements will be made to make navigation simple and intuitive on mobile devices.
