@@ -31,7 +31,7 @@ const mdp = dispatch => {
     closeModal: () => dispatch(closeModal()),
     openModal: (modal) => dispatch(openModal(modal)),
     fetchBoards: () => dispatch(fetchBoards()),
-    fetchBoardsPins: () => dispatch(fetchBoardsPins()),
+    fetchBoardsPins: () => dispatch(fetchBoardsPins())
   };
 };
 

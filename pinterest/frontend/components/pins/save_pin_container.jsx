@@ -6,7 +6,8 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import {
   createBoard,
   fetchBoard,
-  fetchBoards
+  fetchBoards,
+  fetchBoardsPins
 } from '../../actions/board_actions';
 
 
@@ -15,7 +16,8 @@ const msp = (state) => {
   let currentUser = state.entities.users[state.session.id];
   return {
     currentUser: currentUser,
-    boards: Object.values(state.entities.boards)
+    boards: Object.values(state.entities.boards),
+    boardPins: Object.values(state.entities.boardPins || {})
   };
 };
 
@@ -27,6 +29,7 @@ const mdp = dispatch => {
     closeModal: () => dispatch(closeModal()),
     openModal: (modal) => dispatch(openModal(modal)),
     fetchBoards: () => dispatch(fetchBoards()),
+    fetchBoardsPins: () => dispatch(fetchBoardsPins())
   };
 };
 

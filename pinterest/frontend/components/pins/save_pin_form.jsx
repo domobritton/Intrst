@@ -22,6 +22,7 @@ class SavePinForm extends React.Component {
 
   componentDidMount(){
     this.props.fetchBoards();
+    this.props.fetchBoardsPins();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -39,6 +40,7 @@ class SavePinForm extends React.Component {
 
   render(){
     const { boards } = this.props;
+    debugger;
     return (
       <div className='create-pin-page'>
         <div className='create-pin-form'>
@@ -64,10 +66,10 @@ class SavePinForm extends React.Component {
         <div className='form-right-board'>
           <form>
           <ul className='board-selection'>
-            {boards.map((board, id) => {
+            {boards.map((board, idx) => {
               return (
                 <li>
-                  <img key={id} src=''/>
+                  <img key={idx} src=''/>
                 <input
                   type='submit'
                   value={board.title}
