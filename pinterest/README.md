@@ -21,12 +21,12 @@ This masonry layout is responsive and re-organizes columns of images formulated 
 
 ![Masonry Grid Full Screen](https://github.com/domobritton/Intrst/blob/master/pinterest/Screen%20Shot%202018-10-19%20at%209.12.18%20AM.png)
 
-This was accomplished by comparing hard-coded breakpoints to the offsetWidth of the Masonry columns (width %) to determine how many columns to allow on the page. No libraries were used in the creation of this feature.
-
 Columns resize from 4, 3, 2, or 1 column. 
 
 ### Example of 2 column layout on smaller screen
 ![Masonry Grid Small Screen](https://github.com/domobritton/Intrst/blob/master/pinterest/Screen%20Shot%202018-10-19%20at%209.31.41%20AM.png)
+
+This was accomplished by comparing hard-coded breakpoints to the offsetWidth of the Masonry columns (width %) to determine how many columns to allow on the page. **No libraries were used in the creation of this feature**.
 
 ```js
 
@@ -65,7 +65,9 @@ This site utilizes an infinite scroll which updates the render based on the heig
       }
 ```
 ## Modals
-Users can create boards, upload pins, and view pins using modals. Modals allow a user to stay on the same page. This was done without the use of any libraries. Users can open and close modals instantaneously, making navigation more efficient.
+Users can create boards, upload pins, and view pins using modals. Modals allow a user to stay on the same page. This was done without the use of **any libraries**. Users can open and close modals instantaneously, making navigation more efficient.
+
+![Modal Example](https://github.com/domobritton/Intrst/blob/master/pinterest/Screen%20Shot%202018-10-19%20at%209.13.30%20AM.png)
 
 ## Future Features
 
