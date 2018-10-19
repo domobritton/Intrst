@@ -1,13 +1,23 @@
 // Place all the styles related to the api/boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .component {
+//   margin: 0 auto;
+// }
 .profile-boards-container {
-  width: 100vw;
-  height: 70%;
-  min-height: 700px;
+  min-width: 80vw;
+  position: absolute;
+  top: 100px;
   display: flex;
-  align-items: center;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pins-user-container {
+  position: relative;
+  top: 100px;
 }
 
 .board-item-outer {
@@ -17,6 +27,31 @@
   padding: 8px 2px 25px 8px;
   margin: 15px 10px;
   transition: background-color 0.4s ease;
+}
+
+.pin-create-outer {
+  padding: 2px;
+  position: relative;
+  transition: all .2s ease-in-out;
+  border-radius: 8px;
+  padding: 8px 8px 25px 8px;
+}
+
+.pin-create-container {
+  height: 200px;
+  border-radius: 8px;
+  background-color: #efefef;
+}
+
+.pin-create-footer p {
+  margin-top: 10px;
+}
+
+.pin-create-outer:hover {
+  background-color: rgba(142, 142, 142, 0.12);
+  .pin-create-container {
+    background-color: #d7d7d7;
+  }
 }
 
 .board-item-outer:hover {

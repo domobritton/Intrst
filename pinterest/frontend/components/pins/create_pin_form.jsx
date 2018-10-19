@@ -9,7 +9,7 @@ class CreatePinForm extends React.Component {
       url: '',
       imageUrl: null,
       image: null,
-      board_id: 4
+      // board_id: 4
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -86,14 +86,14 @@ class CreatePinForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    let formData = new FormData();
-    formData.append('pin[comment]', this.state.comment);
-    formData.append('pin[url]', this.state.url);
-    formData.append('pin[board_id]', this.state.board_id);
-    if (this.state.image) {
-      formData.append('pin[image]', this.state.image);
-    }
-    this.props.createPin(formData);
+    // let formData = new FormData();
+    // formData.append('pin[comment]', this.state.comment);
+    // formData.append('pin[url]', this.state.url);
+    // // formData.append('pin[board_id]', this.state.board_id);
+    // if (this.state.image) {
+    //   formData.append('pin[image]', this.state.image);
+    // }
+    this.props.openModal({modal: 'SavePin', pin: this.state});
   }
 
   render() {

@@ -72,7 +72,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='session-page'>
         <div className='session-form'>
           <img className='logo' src={window.logo} alt='logo'/>
           <h3>Log in to see more</h3>

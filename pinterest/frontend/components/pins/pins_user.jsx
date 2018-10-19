@@ -1,7 +1,9 @@
 import React from 'react';
 import {  Link, withRouter } from 'react-router-dom';
 import UserShow from '../user/user_show';
-import Masonry from 'react-masonry-component';
+// import Masonry from 'react-masonry-component';
+import MasonryGrid from '../masonry/masonry_grid';
+import Tile from '../masonry/masonry_grid_item';
 
 
 class PinsUser extends React.Component {
@@ -25,57 +27,51 @@ class PinsUser extends React.Component {
 
   displayPins() {
     const { pins } = this.props;
-    let masonryOptions = {
-        transitionDuration: 1,
-        gutter: 20,
-    };
+    let breakPoints = [500, 700, 1150];
 
     if (pins === []){
       return '';
     }
-
     return (
-      <div className='user-profile-items'>
-        <Masonry
-          className='profile-boards-container'
-          elementType={'ul'}
-          options={masonryOptions}
-          disableImagesLoaded={false}
-          updateOnEachImageLoad={false}
-         >
-         <div className='board-items-outer'>
-            <div
-              className='board-item-container'
-              onClick={() => this.props.openModal({modal: 'CreatePin'})}>
-              <div className='plus-outer'>
-              <i className='fa fa-plus' aria-hidden='true'></i>
-              </div>
-            </div>
-            <div className='container-footer'>
-              <p>Create pin</p>
-            </div>
-          </div>
+      <div className='pins-user-container'>
+      <div id='pinsIndexWrapper'>
+        <div className='feed-masonry-container'>
 
-          {pins.map(pin =>
-            <div className='outer-pin-show' onClick={ () => this.props.history.push(`/pin/${pin.pin.id}`) }>
-              <div className='index-image'>
-                <div className='save-pin-modal'>
-                  <div
-                    className='save-pin'
-                    onClick={e => {e.preventDefault();
-                    this.props.openModal({modal: 'SavePin', pin: pin} );}}>Save
+          <MasonryGrid breakPoints={breakPoints}>
+          {pins.map((pin, id) => {
+            return id === 0 ? (
+              <div className='pin-create-outer'>
+                 <div
+                   className='pin-create-container'
+                   onClick={() => this.props.openModal({modal: 'CreatePin'})}>
+                   <div className='plus-outer'>
+                   <i className='fa fa-plus' aria-hidden='true'></i>
+                   </div>
+                 </div>
+                 <div className='pin-create-footer'>
+                   <p>Create pin</p>
+                 </div>
+               </div>
+            ) : (
+            <div className='pin-show' onClick={ () => this.props.history.push(`/pin/${pin.pin.id}`) }>
+              <div className='show-modal'>
+                <div
+                  className='pin-save'
+                  onClick={e => {e.preventDefault();
+                  this.props.openModal({modal: 'SavePin', pin: pin} );}}>
+                  <div>
+                    <Tile key={pin.pin.id}
+                      src={pin.pin.imageUrl}
+                      comment={pin.comment} />
                   </div>
                 </div>
-                  <div className='pin-masonry'>
-                    <div>
-                      <img src={pin.pin.image_url}/>
-                    </div>
-                    <span>{pin.pin.title}</span>
-                  </div>
               </div>
             </div>
-            )}
-        </Masonry>
+          );
+          })}
+        </MasonryGrid>
+      </div>
+      </div>
       </div>
     );
   }
@@ -94,12 +90,6 @@ class PinsUser extends React.Component {
     return(
       <div>
         <div>
-          <div
-            className='edit-board'
-            onClick={() => this.props.openModal({modal: 'EditBoard',
-               board: this.props.currentBoard})}>
-               <span><i className='fas fa-pencil-alt'></i></span>
-          </div>
           <h3>{this.props.currentBoard.title}</h3>
         </div>
           {this.displayPins()}

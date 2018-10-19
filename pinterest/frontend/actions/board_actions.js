@@ -8,24 +8,24 @@ export const REMOVE_BOARD = 'REMOVE_BOARD';
 export const RECEIVE_BOARD_ERRORS = 'RECEIVE_BOARD_ERRORS';
 export const CLEAR_BOARD_ERRORS = 'CLEAR_BOARD_ERRORS';
 
-export const receiveBoards = (boards) => ({
+export const receiveBoards = (response) => ({
   type: RECEIVE_BOARDS,
-  payload: boards
+  payload: response
 });
 
-export const receiveBoard = (board) => ({
+export const receiveBoard = (response) => ({
   type: RECEIVE_BOARD,
-  payload: board
+  payload: response
 });
 
-export const receiveBoardsPins = (pins) => ({
+export const receiveBoardsPins = (response) => ({
   type: RECEIVE_BOARDSPINS,
-  payload: pins
+  payload: response
 });
 
-export const receiveBoardPins = (pins) => ({
+export const receiveBoardPins = (response) => ({
   type: RECEIVE_BOARDPINS,
-  payload: pins
+  payload: response
 });
 
 export const removeBoard = (board) => ({
@@ -43,19 +43,19 @@ export const clearBoardErrors = () => ({
 });
 
 export const fetchBoards = () => dispatch => (
-  boardAPIUtil.fetchBoards().then(boards => dispatch(receiveBoards(boards)),
+  boardAPIUtil.fetchBoards().then(response => dispatch(receiveBoards(response)),
   err => (dispatch(receiveBoardErrors(err.responseJSON))
   ))
 );
 
 export const fetchBoard = (id) => dispatch => (
-  boardAPIUtil.fetchBoard(id).then(board => dispatch(receiveBoard(board)),
+  boardAPIUtil.fetchBoard(id).then(response => dispatch(receiveBoard(response)),
   err => (dispatch(receiveBoardErrors(err.responseJSON))
   ))
 );
 
 export const fetchBoardsPins = () => dispatch => (
-  boardAPIUtil.fetchBoards().then(pins => dispatch(receiveBoardsPins(pins)),
+  boardAPIUtil.fetchBoards().then(response => dispatch(receiveBoardsPins(response)),
   err => (dispatch(receiveBoardErrors(err.responseJSON))
   ))
 );
@@ -68,8 +68,8 @@ export const fetchBoardsPins = () => dispatch => (
 
 export const fetchBoardPin = (id) => {
   return dispatch => {
-    return boardAPIUtil.fetchBoard(id).then(pins => {
-      return dispatch(receiveBoardPins(pins));
+    return boardAPIUtil.fetchBoard(id).then(response => {
+      return dispatch(receiveBoardPins(response));
     });
   };
 };

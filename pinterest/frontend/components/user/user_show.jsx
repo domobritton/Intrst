@@ -57,12 +57,12 @@ class UserShow extends React.Component{
               className='profile-image'
               src='https://source.unsplash.com/user/yiwen0316'/>}
           </div>
-        </div>
         <div className='profile-btns'>
         <ul className='profile-list'>
           <li><button className={this.state.active ? 'board-button' : 'active'} onClick={this.handleclick('board')}>Boards</button></li>
           <li><button className={this.state.active ? 'active' : 'pin-button'} onClick={this.handleclick('pin')}>Pins</button></li>
         </ul>
+        </div>
         </div>
         <div className='component'>
           {components[chosenComponent]}

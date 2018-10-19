@@ -50,7 +50,7 @@ class PinsIndex extends React.Component {
     let nextPin = `https://source.unsplash.com/random?sig=${randomNum}`;
     this.setState({
       hasMore: (this.state.pins.length < 1000),
-      pins: [...this.state.pins, nextPin],
+      pins: [...this.state.pins, nextPin]
     });
   }
 
@@ -80,7 +80,7 @@ class PinsIndex extends React.Component {
                       </div>
                     </div>
                   </div>
-                ) :
+                ) : (
                 <div
                   className='pin-show'
                   onClick={
@@ -90,11 +90,12 @@ class PinsIndex extends React.Component {
                       className='pin-save'
                       onClick={(e) => {e.preventDefault(); this.props.openModal({modal: 'SavePin', pin: pin});}}>
                       <div>
-                        <Tile key={id} src={pin} comment={''}/>;
+                        <Tile key={id} src={pin} comment={''}/>
                       </div>
                     </div>
                   </div>
-                </div>;
+                </div>
+              );
               })}
             </MasonryGrid>
           </div>

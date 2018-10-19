@@ -21,7 +21,7 @@ const msp = (state) => {
 
 const mdp = dispatch => {
   return {
-    createPin: (pin) => dispatch(createPin(pin)),
+    createPin: (formData) => dispatch(createPin(formData)),
     createBoard: (board) => dispatch(createBoard(board)),
     fetchBoard: (id) => dispatch(fetchBoard(id)),
     closeModal: () => dispatch(closeModal()),

@@ -19,7 +19,7 @@ class Board < ApplicationRecord
 
   has_many :pins,
   primary_key: :id,
-  foreign_key: :author_id,
+  foreign_key: :board_id,
   class_name: :Pin
 
 end

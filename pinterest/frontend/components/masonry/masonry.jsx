@@ -2,14 +2,14 @@ import React from 'react';
 import MasonryGrid from './masonry_grid';
 import Tile from './masonry_grid_item';
 
-class Masonry extends React.PureComponent{
+class Masonry extends React.PureComponent {
 	render(){
     let breakPoints = [350, 500, 750];
     let images = [];
 
     for(let i = 0; i < 50; i++){
       let randomNum = Math.floor(Math.random() * 1000);
-      images.push('https://source.unsplash.com/random?' + `sig=${randomNum}`);
+      images.push(`https://source.unsplash.com/random?sig=${randomNum}`);
     }
 
 		return (

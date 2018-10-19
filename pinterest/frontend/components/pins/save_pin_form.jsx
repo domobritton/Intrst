@@ -9,7 +9,8 @@ class SavePinForm extends React.Component {
       comment: this.props.pin.comment,
       url: this.props.pin.url,
       imageUrl: this.props.pin.imageUrl,
-      board_id: '',
+      image: this.props.pin.image,
+      board_id: ''
     };
   }
 
@@ -23,57 +24,74 @@ class SavePinForm extends React.Component {
     this.props.fetchBoards();
   }
 
-
   componentDidUpdate(prevProps, prevState) {
-    const pin = this.state;
-    if (pin.board_id !== '' && prevState !== this.state){
-      this.props.createPin(pin).then(() => this.props.closeModal());
+    if (this.state.board_id !== '' && prevState !== this.state) {
+      let formData = new FormData();
+      formData.append('pin[comment]', this.state.comment);
+      formData.append('pin[url]', this.state.url);
+      formData.append('pin[board_id]', this.state.board_id);
+      if (this.state.image) {
+        formData.append('pin[image]', this.state.image);
+      }
+      this.props.createPin(formData).then(() => this.props.closeModal());
     }
   }
 
   render(){
-    const boards = this.props.boards;
+    const { boards } = this.props;
     return (
-      <div className='save-pin-form'>
-        <div>
-        <span
-          className='close-modal'
-          onClick={() => this.props.closeModal()}>
-        <i className='fas fa-times'></i>
-      </span>
-        <h3>Choose Board</h3>
-        </div>
-        <div className='form-left'>
-          <div className='pin-upload-outer'>
+      <div className='create-pin-page'>
+        <div className='create-pin-form'>
+          <div className='create-pin-header'>
+            <h1>Choose board</h1>
+            <div className='close'>
+              <span
+                className='close-modal'
+                onClick={() => this.props.closeModal()}>
+                <i className='fas fa-times'></i>
+              </span>
+            </div>
+          </div>
+
+        <div className='form-left-board'>
+          <div className='pin-upload-outer-ready'>
             <div className='thumbnail-outer'>
               <img className='img-thumbnail'
                    src={this.state.imageUrl}/>
             </div>
           </div>
         </div>
-        <ul className='board-selection'>
-          {boards.map(board => {
-            return (
-              <li>
-              <input
-                type='submit'
-                value={board.title}
-                onClick={this.handleclick(board.id)}/>
-              </li>
-              );
-            }
-          )}
-        </ul>
-
+        <div className='form-right-board'>
+          <form>
+          <ul className='board-selection'>
+            {boards.map((board, id) => {
+              return (
+                <li>
+                  <img key={id} src=''/>
+                <input
+                  type='submit'
+                  value={board.title}
+                  onClick={this.handleclick(board.id)}/>
+                <a className='save-btn-board'>
+                    <i className="fas fa-thumbtack"></i>
+                    <p>Save</p>
+                  </a>
+                </li>
+                );
+              }
+            )}
+          </ul>
+          </form>
         <div
           className='board-info'
           onClick={() => this.props.openModal({modal: 'CreateBoard'} )}>
-          <div
-            className='create-board'>Create Board</div>
-          <i
-            id='add-board'
-            className='fa fa-plus'
-            aria-hidden="true"></i>
+          <div id='plus-outer-save'>
+            <i className='fa fa-plus'
+              aria-hidden='true'></i>
+          </div>
+          <p>Create board</p>
+        </div>
+        </div>
         </div>
       </div>
     );
