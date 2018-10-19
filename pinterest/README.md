@@ -54,7 +54,7 @@ This was accomplished by comparing hard-coded breakpoints to the offsetWidth of 
 ```
 ## Infinite Scroll
 
-This site utilizes an infinite scroll which updates the render based on the height of the window and by listening to the scroll of the user. **No library**
+This site utilizes an infinite scroll which updates the render based on the height of the window and by listening to the scroll of the user. Infinite Scroll was accomplished without the use of **any libraries**. 
 
 ```js
       if (
@@ -65,7 +65,7 @@ This site utilizes an infinite scroll which updates the render based on the heig
       }
 ```
 ## Modals
-Users can create boards, upload pins, and view pins using modals. Modals allow a user to stay on the same page. This was done without the use of **any libraries**. Users can open and close modals instantaneously, making navigation more efficient.
+Users can create boards, upload pins, and view pins using modals. Modals allow a user to stay on the same page. Users can open and close modals instantaneously, making navigation more efficient.
 
 ![Modal Example](https://github.com/domobritton/Intrst/blob/master/pinterest/Screen%20Shot%202018-10-19%20at%209.13.30%20AM.png)
 
