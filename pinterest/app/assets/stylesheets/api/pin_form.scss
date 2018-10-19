@@ -1,6 +1,7 @@
 .create-pin-page {
   position: absolute;
   overflow: hidden;
+  display: block;
   top: 0;
   left: 0;
   height: 100vh;
@@ -10,6 +11,7 @@
 
 .create-pin-page::before {
   position: absolute;
+  display: block;
   content:" ";
   top:0;
   left:0;

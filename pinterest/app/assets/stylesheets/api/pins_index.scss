@@ -1,5 +1,9 @@
 #pinsIndexWrapper {
   padding-top: 80px;
+  display: block;
+  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
 }
 
 #pinsIndexWrapper .feed-masonry-container {

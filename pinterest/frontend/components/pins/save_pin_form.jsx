@@ -40,7 +40,12 @@ class SavePinForm extends React.Component {
 
   render(){
     const { boards } = this.props;
-    debugger;
+    const images = [];
+
+    for (let i = 0; i < 4; i++){
+      let randomNum = Math.floor(Math.random() * 1000);
+      images.push(`https://source.unsplash.com/random?sig=${randomNum}`);
+    }
     return (
       <div className='create-pin-page'>
         <div className='create-pin-form'>
@@ -65,24 +70,24 @@ class SavePinForm extends React.Component {
         </div>
         <div className='form-right-board'>
           <form>
-          <ul className='board-selection'>
-            {boards.map((board, idx) => {
-              return (
-                <li>
-                  <img key={idx} src=''/>
-                <input
-                  type='submit'
-                  value={board.title}
-                  onClick={this.handleclick(board.id)}/>
-                <a className='save-btn-board'>
-                    <i className="fas fa-thumbtack"></i>
-                    <p>Save</p>
-                  </a>
-                </li>
-                );
-              }
-            )}
-          </ul>
+            <ul className='board-selection'>
+              {boards.map((board, idx) => {
+                return (
+                  <li>
+                    <img key={idx} src={images[idx]} />
+                  <input
+                    type='submit'
+                    value={board.title}
+                    onClick={this.handleclick(board.id)}/>
+                  <a className='save-btn-board'>
+                      <i className="fas fa-thumbtack"></i>
+                      <p>Save</p>
+                    </a>
+                  </li>
+                  );
+                }
+              )}
+            </ul>
           </form>
         <div
           className='board-info'
