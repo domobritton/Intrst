@@ -23,6 +23,11 @@ This masonry layout is responsive and re-organizes columns of images formulated 
 
 This was accomplished by comparing hard-coded breakpoints to the offsetWidth of the Masonry columns (width %) to determine how many columns to allow on the page. No libraries were used in the creation of this feature.
 
+Columns resize from 4, 3, 2, or 1 column. 
+
+### Example of 2 column layout on smaller screen
+![Masonry Grid Small Screen](https://github.com/domobritton/Intrst/blob/master/pinterest/Screen%20Shot%202018-10-19%20at%209.31.41%20AM.png)
+
 ```js
 
   // let breakPoints = [500, 700, 1150];
