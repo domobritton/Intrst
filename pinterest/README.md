@@ -4,7 +4,7 @@
 
 Intrst is a lifestyle website, inspired by Pinterest. This site was built over a two week period, although I will continue to make improvements over time.
 
-Instrst employs Rails, React/Redux and utilizes AWS S3 ActiveStorage. 
+Intrst employs Rails, React/Redux and utilizes AWS S3 ActiveStorage. 
 
 ## Features 
 
@@ -19,7 +19,7 @@ Instrst employs Rails, React/Redux and utilizes AWS S3 ActiveStorage.
 
 This masonry layout is responsive and re-organizes columns of images formulated on breakpoints for the best user experience on screens of all sizes. 
 
-[What is this](myimage.png)
+[Masonry Grid Full Screen](Screen Shot 2018-10-19 at 9.12.18 AM.png)
 
 This was accomplished by comparing hard-coded breakpoints to the offsetWidth of the Masonry columns (width %) to determine how many columns to allow on the page. No libraries were used in the creation of this feature.
 
