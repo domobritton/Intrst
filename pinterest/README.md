@@ -4,7 +4,7 @@
 
 Intrst is a lifestyle website, inspired by Pinterest. This site was built over a two week period, although I will continue to make improvements over time.
 
-Intrst employs Rails, React/Redux and utilizes AWS S3 ActiveStorage. 
+Intrst employs Ruby on Rails, React/Redux, and utilizes AWS S3 ActiveStorage. 
 
 ## Features 
 
@@ -32,29 +32,29 @@ This was accomplished by comparing hard-coded breakpoints to the offsetWidth of 
 
   // let breakPoints = [500, 700, 1150];
   
-	getColumns(w){
-		return this.props.breakPoints.reduceRight( (p, c, i) => {
-			return c < w ? p : i;
-		}, this.props.breakPoints.length) + 2;
+	getColumns(w) {
+	  return this.props.breakPoints.reduceRight( (p, c, i) => {
+	    return c < w ? p : i;
+	  }, this.props.breakPoints.length) + 2;
 	}
 
-	onResize(){
-		if (this.refs.Masonry === undefined) {
-			return null;
-		}
-		const columns = this.getColumns(this.refs.Masonry.offsetWidth);
-		if (columns !== this.state.columns){
-			this.setState({columns: columns});
-		}
-    if (window.innerWidth < 500) {
-			this.setState({columns: 1});
-		}
-	}
+	onResize() {
+	  if (this.refs.Masonry === undefined) {
+	    return null;
+	  }
+	  const columns = this.getColumns(this.refs.Masonry.offsetWidth);
+	    if (columns !== this.state.columns){
+	      this.setState({columns: columns});
+	    }
+            if (window.innerWidth < 500) {
+	      this.setState({columns: 1});
+	    }
+	  }
 
 ```
 ## Infinite Scroll
 
-This site utilizes an infinite scroll which updates the render based on the height of the window and by listening to the scroll of the user.
+This site utilizes an infinite scroll which updates the render based on the height of the window and by listening to the scroll of the user. **No library**
 
 ```js
       if (
@@ -77,4 +77,12 @@ Users will be able to search for relevant images to display on their discovery f
 
 ### Edit, Update, Delete boards and pins
 
-Each pin and board will be editable
+Each pin and board will be editable, updateable and deleteable.
+
+### User follows
+
+Users will be able to see other users profiles and follow users.
+
+### Mobile friendly header with hamburger menu
+
+Improvements will be made to make the navigation simple and intuitive on mobile devices.
