@@ -32,14 +32,12 @@ export const clearPinErrors = (errors) => ({
 
 export const fetchPins = () => dispatch => (
   PinsAPIUtil.fetchPins().then(pins => dispatch(receivePins(pins)),
-  err => (dispatch(pinErrors(err.responseJSON))
-  ))
+    err => (dispatch(pinErrors(err.responseJSON))))
 );
 
 export const fetchPin = (id) => dispatch => (
   PinsAPIUtil.fetchPin(id).then(pin => dispatch(receivePin(pin)),
-  err => (dispatch(pinErrors(err.responseJSON))
-  ))
+    err => (dispatch(pinErrors(err.responseJSON))))
 );
 
 export const createPin = (formData) => {
@@ -52,6 +50,5 @@ export const createPin = (formData) => {
 
 export const deletePin = (id) => dispatch => (
   PinsAPIUtil.deletePin(id).then(pin => dispatch(removePin(pin)),
-  err => (dispatch(pinErrors(err.responseJSON))
-  ))
+    err => (dispatch(pinErrors(err.responseJSON))))
 );

@@ -1,24 +1,21 @@
-import { connect } from 'react-redux';
-import CreateBoard from './create_board';
-import { openModal, closeModal } from '../../actions/modal_actions';
-import {
-  createBoard,
-  receiveBoardErrors } from '../../actions/board_actions';
+import { connect } from "react-redux";
+import CreateBoard from "./create_board";
+import { openModal, closeModal } from "../../actions/modal_actions";
+import { createBoard, receiveBoardErrors } from "../../actions/board_actions";
 
-
-const msp = (state) => {
+const msp = state => {
   return {
     currentUser: state.entities.users[state.session.id],
-    errors: state.errors.boards,
+    errors: state.errors.boards
   };
 };
 
 const mdp = dispatch => {
   return {
-    receiveBoardErrors: (errors) => dispatch(receiveBoardErrors(errors)),
-    createBoard: (board) => dispatch(createBoard(board)),
+    receiveBoardErrors: errors => dispatch(receiveBoardErrors(errors)),
+    createBoard: board => dispatch(createBoard(board)),
     closeModal: () => dispatch(closeModal()),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 

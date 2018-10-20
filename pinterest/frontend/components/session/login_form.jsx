@@ -1,14 +1,12 @@
-import React from 'react';
-import { withRouter } from 'react-router';
-import Masonry from '../masonry/masonry';
+import React from "react";
+import { withRouter } from "react-router";
 
 class LoginForm extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,22 +15,26 @@ class LoginForm extends React.Component {
   }
 
   updateEmail(e) {
-    this.setState({email: e.currentTarget.value});
+    this.setState({ email: e.currentTarget.value });
   }
 
   updatePassword(e) {
-    this.setState({password: e.currentTarget.value});
+    this.setState({ password: e.currentTarget.value });
   }
 
   errorsMessage() {
-    if (this.props.errors === 'undefined') {
+    if (this.props.errors === "undefined") {
       return;
     }
     return (
       <ul>
-      {this.props.errors.map((error, idx) => {
-           return <li key={idx}>{error}</li>;
-      })}
+        {this.props.errors.map((error, idx) => {
+          return (
+            <li key={idx}>
+              {error}
+            </li>
+          );
+        })}
       </ul>
     );
   }
@@ -44,27 +46,33 @@ class LoginForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(()=>this.props.history.push('/'));
+    this.props.processForm(user).then(() => this.props.history.push("/"));
   }
 
   guestLogin() {
-    const email = 'guest@guest.com'.split('');
-    const password = 'Aacademy'.split('');
-    const button = document.getElementById('login2');
-    this.setState({email: '', password: ''}, () => (
+    const email = "guest@guest.com".split("");
+    const password = "Aacademy".split("");
+    const button = document.getElementById("login2");
+    this.setState({ email: "", password: "" }, () =>
       this.loginHelper(email, password, button)
-    ));
+    );
   }
 
   loginHelper(email, password, button) {
     if (email.length > 0) {
-      this.setState({email: this.state.email + email.shift()}, () => {
+      this.setState({ email: this.state.email + email.shift() }, () => {
         window.setTimeout(() => this.loginHelper(email, password, button), 75);
       });
-    } else if(password.length > 0) {
-      this.setState({password: this.state.password + password.shift()}, () => {
-        window.setTimeout(() => this.loginHelper(email, password, button), 100);
-      });
+    } else if (password.length > 0) {
+      this.setState(
+        { password: this.state.password + password.shift() },
+        () => {
+          window.setTimeout(
+            () => this.loginHelper(email, password, button),
+            100
+          );
+        }
+      );
     } else {
       button.click();
     }
@@ -72,61 +80,55 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className='session-page'>
-        <div className='session-form'>
-          <img className='logo' src={window.logo} alt='logo'/>
+      <div className="session-page">
+        <div className="session-form">
+          <img className="logo" src={window.logo} alt="logo" />
           <h3>Log in to see more</h3>
           <h4>Access Intrst's best ideas</h4>
-          <form
-            className='inner-form'
-            onSubmit={this.handleSubmit}>
-            <div className='input-fields'>
+          <form className="inner-form" onSubmit={this.handleSubmit}>
+            <div className="input-fields">
               <input
-                type='text'
-                placeholder='Email'
+                type="text"
+                placeholder="Email"
                 onChange={this.updateEmail.bind(this)}
-                value={this.state.email}>
-              </input>
+                value={this.state.email}
+              />
               <br />
               <input
-                type='password'
-                placeholder='Password'
+                type="password"
+                placeholder="Password"
                 onChange={this.updatePassword.bind(this)}
-                value={this.state.password}>
-              </input>
+                value={this.state.password}
+              />
               <br />
             </div>
-            <div className='login-submit-btn'>
-            <input
-              id='login'
-              type='submit'
-              value={this.props.formType}>
-            </input>
+            <div className="login-submit-btn">
+              <input id="login" type="submit" value={this.props.formType} />
             </div>
           </form>
           <form>
-            <div className='login-submit-btn'>
+            <div className="login-submit-btn">
               <input
-                type='submit'
+                type="submit"
                 onClick={this.guestLogin}
-                value='Demo Login'>
-              </input>
+                value="Demo Login"
+              />
             </div>
-            <button
-              id='login2'
-              type='button' onClick={this.handleGuest}>
-            </button>
+            <button id="login2" type="button" onClick={this.handleGuest} />
             <br />
-              <div className='div-line'></div>
-              <div className='signup-link'>
-                <div
-                  className='signup-link'
-                  onClick={() => this.props.openModal({modal: 'ShowSignup'})}>
-                  <p>Not on Intrst yet? Sign Up</p>
-                </div>
+            <div className="div-line" />
+            <div className="signup-link">
+              <div
+                className="signup-link"
+                onClick={() => this.props.openModal({ modal: "ShowSignup" })}
+              >
+                <p>Not on Intrst yet? Sign Up</p>
               </div>
+            </div>
           </form>
-          <div className="errors">{this.errorsMessage()}</div>
+          <div className="errors">
+            {this.errorsMessage()}
+          </div>
         </div>
       </div>
     );

@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import configureStore from './store/store';
-import Root from './components/root';
-import Favicon from 'react-favicon';
+import React from "react";
+import ReactDOM from "react-dom";
+import configureStore from "./store/store";
+import Root from "./components/root";
+import Favicon from "react-favicon";
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const root = document.getElementById('root');
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.getElementById("root");
 
   let store;
   if (window.currentUser) {
@@ -24,9 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(
     <div>
-      <Favicon url='https://raw.githubusercontent.com/domobritton/Intrst/master/pinterest/intrst.ico' />
+      <Favicon url="https://raw.githubusercontent.com/domobritton/Intrst/master/pinterest/intrst.ico" />
       <Root store={store} />
-    </div>
-      , root
-    );
+    </div>,
+    root
+  );
 });

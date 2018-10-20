@@ -4,5 +4,8 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 
 export const requestUser = id => dispatch => (
   userAPIUtil.fetchUser(id)
-    .then(response => dispatch({type: RECEIVE_USER, user: response}))
+  .then(response => dispatch({
+    type: RECEIVE_USER,
+    user: response
+  }))
 );

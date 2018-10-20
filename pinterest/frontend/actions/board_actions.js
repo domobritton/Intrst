@@ -44,51 +44,36 @@ export const clearBoardErrors = () => ({
 
 export const fetchBoards = () => dispatch => (
   boardAPIUtil.fetchBoards().then(response => dispatch(receiveBoards(response)),
-  err => (dispatch(receiveBoardErrors(err.responseJSON))
-  ))
+    err => (dispatch(receiveBoardErrors(err.responseJSON))))
 );
 
 export const fetchBoard = (id) => dispatch => (
   boardAPIUtil.fetchBoard(id).then(response => dispatch(receiveBoard(response)),
-  err => (dispatch(receiveBoardErrors(err.responseJSON))
-  ))
+    err => (dispatch(receiveBoardErrors(err.responseJSON))))
 );
 
 export const fetchBoardsPins = () => dispatch => (
   boardAPIUtil.fetchBoards().then(response => dispatch(receiveBoardsPins(response)),
-  err => (dispatch(receiveBoardErrors(err.responseJSON))
-  ))
+    err => (dispatch(receiveBoardErrors(err.responseJSON))))
 );
 
-// export const fetchBoardPin = (id) => dispatch => (
-//   boardAPIUtil.fetchBoard(id).then(pins => dispatch(receiveBoardPins(pins)),
-//   err => (dispatch(receiveBoardErrors(err.responseJSON))
-//   ))
-// );
-
-export const fetchBoardPin = (id) => {
-  return dispatch => {
-    return boardAPIUtil.fetchBoard(id).then(response => {
-      return dispatch(receiveBoardPins(response));
-    });
-  };
-};
+export const fetchBoardPin = (id) => dispatch => (
+  boardAPIUtil.fetchBoard(id).then(pins => dispatch(receiveBoardPins(pins)),
+    err => (dispatch(receiveBoardErrors(err.responseJSON))))
+);
 
 export const createBoard = (board) => (dispatch) => (
   boardAPIUtil.createBoard(board).then(boardFromServer => dispatch(receiveBoard(boardFromServer)),
-  err => (dispatch(receiveBoardErrors(err.responseJSON))
-  ))
+    err => (dispatch(receiveBoardErrors(err.responseJSON))))
 );
 
 export const updateBoard = (board) => (dispatch) => (
   boardAPIUtil.updateBoard(board).then(boardFromServer => dispatch(receiveBoard(boardFromServer)),
-  err => (dispatch(receiveBoardErrors(err.responseJSON))
-  ))
+    err => (dispatch(receiveBoardErrors(err.responseJSON))))
 );
 
 export const deleteBoard = (id) => (dispatch) => (
   boardAPIUtil.deleteBoard(id).then(board =>
-  dispatch(removeBoard(board)),
-  err => (dispatch(receiveBoardErrors(err.responseJSON))
-  ))
+    dispatch(removeBoard(board)),
+    err => (dispatch(receiveBoardErrors(err.responseJSON))))
 );

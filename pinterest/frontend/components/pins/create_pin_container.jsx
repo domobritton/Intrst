@@ -1,27 +1,26 @@
-import { connect } from 'react-redux';
-import CreatePinForm from './create_pin_form';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { connect } from "react-redux";
+import CreatePinForm from "./create_pin_form";
+import { openModal, closeModal } from "../../actions/modal_actions";
 import {
   createPin,
   pinErrors,
-  clearPinErrors } from '../../actions/pin_actions';
+  clearPinErrors
+} from "../../actions/pin_actions";
 
-
-
-const msp = (state) => {
+const msp = state => {
   return {
-    errors: state.errors,
+    errors: state.errors
   };
 };
 
 const mdp = dispatch => {
   return {
-    createPin: (formData) => dispatch(createPin(formData)),
-    pinErrors: (errors) => dispatch(pinErrors(errors)),
+    createPin: formData => dispatch(createPin(formData)),
+    pinErrors: errors => dispatch(pinErrors(errors)),
     closeModal: () => dispatch(closeModal()),
-    openModal: (modal) => dispatch(openModal(modal)),
-    clearPinErrors: (errors) => dispatch(clearPinErrors(errors))
+    openModal: modal => dispatch(openModal(modal)),
+    clearPinErrors: errors => dispatch(clearPinErrors(errors))
   };
 };
 
-export default connect (msp, mdp)(CreatePinForm);
+export default connect(msp, mdp)(CreatePinForm);

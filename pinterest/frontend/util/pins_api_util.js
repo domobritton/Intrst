@@ -12,7 +12,6 @@ export const fetchPin = id => (
   })
 );
 
-
 export const createPin = formData => {
   return $.ajax({
     url: '/api/pins',

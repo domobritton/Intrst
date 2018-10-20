@@ -1,12 +1,11 @@
-import React from 'react';
-import Dropzone from 'react-dropzone';
+import React from "react";
 
 class CreatePinForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      comment: '',
-      url: '',
+      comment: "",
+      url: "",
       imageUrl: null,
       image: null
     };
@@ -15,31 +14,31 @@ class CreatePinForm extends React.Component {
   imagePreview() {
     if (this.state.image === null) {
       return (
-        <div className='form-left'>
-          <div className='pin-upload-outer'>
-            <div className='fake-upload'>
-            <i className='fas fa-camera'></i>
-            <div className='pin-upload-inner'>
-              <p>Drag and drop or click to upload</p>
-            </div>
-            </div>
-            <input
-              className='real-upload'
-              type='file'
-              onChange={this.handleFile.bind(this)} />
-            </div>
-        </div>
-      );
-    } else if (this.state.imageUrl){
-        return (
-          <div className='form-left'>
-            <div className='pin-upload-outer-ready'>
-              <div className='thumbnail-outer'>
-                <img className='img-thumbnail'
-                     src={this.state.imageUrl}/>
+        <div className="form-left">
+          <div className="pin-upload-outer">
+            <div className="fake-upload">
+              <i className="fas fa-camera" />
+              <div className="pin-upload-inner">
+                <p>Drag and drop or click to upload</p>
               </div>
             </div>
+            <input
+              className="real-upload"
+              type="file"
+              onChange={this.handleFile.bind(this)}
+            />
           </div>
+        </div>
+      );
+    } else if (this.state.imageUrl) {
+      return (
+        <div className="form-left">
+          <div className="pin-upload-outer-ready">
+            <div className="thumbnail-outer">
+              <img className="img-thumbnail" src={this.state.imageUrl} />
+            </div>
+          </div>
+        </div>
       );
     } else {
       return null;
@@ -50,7 +49,7 @@ class CreatePinForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
-      this.setState({image: file, imageUrl: fileReader.result});
+      this.setState({ image: file, imageUrl: fileReader.result });
     };
     if (file) {
       fileReader.readAsDataURL(file);
@@ -58,13 +57,13 @@ class CreatePinForm extends React.Component {
   }
 
   renderErrors() {
-    return(
+    return (
       <ul>
-        {this.props.errors.map((error, i) => (
+        {this.props.errors.map((error, i) =>
           <li key={`error-${i}`}>
             {error}
           </li>
-        ))}
+        )}
       </ul>
     );
   }
@@ -73,63 +72,73 @@ class CreatePinForm extends React.Component {
     this.props.clearPinErrors(this.props.errors);
   }
 
-  update(type){
-    return e => this.setState({
-      [type]: e.currentTarget.value
-    });
+  update(type) {
+    return e =>
+      this.setState({
+        [type]: e.currentTarget.value
+      });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.openModal({modal: 'SavePin', pin: this.state});
+    this.props.openModal({ modal: "SavePin", pin: this.state });
   }
 
   render() {
     let submitBtn, doneBtn;
     if (this.state.image === null) {
-      doneBtn = 'done-btn';
-      submitBtn = 'submit-btn';
+      doneBtn = "done-btn";
+      submitBtn = "submit-btn";
     } else {
-      doneBtn = 'done-btn-red';
-      submitBtn = 'submit-btn-red';
+      doneBtn = "done-btn-red";
+      submitBtn = "submit-btn-red";
     }
     return (
-      <div className='create-pin-page'>
+      <div className="create-pin-page">
         <form
-          className='create-pin-form'
-          onSubmit={this.handleSubmit.bind(this)}>
-          <div className='create-pin-header'>
+          className="create-pin-form"
+          onSubmit={this.handleSubmit.bind(this)}
+        >
+          <div className="create-pin-header">
             <h1>Create Pin</h1>
-          <br/>
-          {this.renderErrors()}
-            <div className='close'>
+            <br />
+            {this.renderErrors()}
+            <div className="close">
               <span
-                className='close-modal'
-                onClick={() => this.props.closeModal()}>
-                <i className='fas fa-times'></i>
+                className="close-modal"
+                onClick={() => this.props.closeModal()}
+              >
+                <i className="fas fa-times" />
               </span>
             </div>
           </div>
 
-            {this.imagePreview()}
-          <div className='form-right'>
-            <label><div className='label'>Website</div></label>
+          {this.imagePreview()}
+          <div className="form-right">
+            <label>
+              <div className="label">Website</div>
+            </label>
             <input
-              className='website'
-              type='text'
+              className="website"
+              type="text"
               value={this.state.url}
-              placeholder="Add the URL this Pin links to" onChange={this.update('url')}/>
-            <label><div className='label'>Description</div></label>
+              placeholder="Add the URL this Pin links to"
+              onChange={this.update("url")}
+            />
+            <label>
+              <div className="label">Description</div>
+            </label>
             <textarea
-              className='comment'
-              type='text'
+              className="comment"
+              type="text"
               value={this.state.comment}
-              placeholder="Say more about this Pin" onChange={this.update('comment')}>
-            </textarea>
+              placeholder="Say more about this Pin"
+              onChange={this.update("comment")}
+            />
           </div>
-          <div className='create-pin-footer'>
+          <div className="create-pin-footer">
             <div className={doneBtn}>
-              <input className={submitBtn} type='submit' value='Done'/>
+              <input className={submitBtn} type="submit" value="Done" />
             </div>
           </div>
         </form>

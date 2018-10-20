@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// .component {
-//   margin: 0 auto;
-// }
 .profile-boards-container {
   min-width: 80vw;
   position: absolute;
@@ -49,6 +46,7 @@
 
 .pin-create-outer:hover {
   background-color: rgba(142, 142, 142, 0.12);
+
   .pin-create-container {
     background-color: #d7d7d7;
   }
@@ -56,6 +54,7 @@
 
 .board-item-outer:hover {
   background-color: rgba(142, 142, 142, 0.12);
+
   .board-item-container {
     background-color: #d7d7d7;
   }
@@ -103,9 +102,11 @@
 
 .board-containers:hover {
   background-color: rgba(142, 142, 142, 0.12);
+
   .thumbnail-box {
     background-color: #d7d7d7;
   }
+
   .board-title .fa-pencil-alt {
     opacity: 1;
   }
@@ -134,9 +135,7 @@
   border-radius: 8px;
 }
 
-.board-title {
-
-}
+.board-title {}
 
 .board-title p {
   position: relative;

@@ -7,11 +7,11 @@ const boardErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BOARD_ERRORS:
-    return action.errors;
+      return action.errors;
     case CLEAR_BOARD_ERRORS:
-    return [];
+      return [];
     default:
-    return state;
+      return state;
   }
 };
 

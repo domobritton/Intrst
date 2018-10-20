@@ -1,9 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import PinsIndex from './pins_index';
-import { fetchPins, clearPinErrors } from '../../actions/pin_actions';
-import { openModal } from '../../actions/modal_actions';
-
+import { connect } from "react-redux";
+import PinsIndex from "./pins_index";
+import { fetchPins, clearPinErrors } from "../../actions/pin_actions";
+import { openModal } from "../../actions/modal_actions";
 
 const msp = ({ entities }) => {
   return {
@@ -15,7 +13,7 @@ const mdp = dispatch => {
   return {
     fetchPins: () => dispatch(fetchPins()),
     clearPinErrors: () => dispatch(clearPinErrors()),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 
