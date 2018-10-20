@@ -135,8 +135,6 @@
   border-radius: 8px;
 }
 
-.board-title {}
-
 .board-title p {
   position: relative;
   font-size: 18px;
@@ -144,11 +142,9 @@
   color: #333;
   line-height: 1.2;
   display: inline;
-  margin-top: 6px;
   letter-spacing: 0.1em;
   top: 10px;
   left: 8px;
-  float: left;
 }
 
 .board-title .fa-pencil-alt {
