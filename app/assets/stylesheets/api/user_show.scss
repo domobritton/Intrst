@@ -1,0 +1,95 @@
+.profile-outer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  position: absolute;
+  top: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 120px;
+}
+
+.profile-upper {
+  max-width: 800px;
+  width: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.profile-name {
+  max-width: 600px;
+  width: 100%;
+}
+
+h2 {
+  line-height: 1.2;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.profile-image-outer {
+  position: relative;
+  overflow: hidden;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  margin-left: 90px;
+}
+
+.profile-image {
+  position: absolute;
+  width: 106px;
+  height: 106px;
+}
+
+.profile-btns {
+  position: absolute;
+  top: 80px;
+  float: left;
+  left: 0;
+  width: 100%;
+  margin-top: 80px;
+  z-index: 1;
+}
+
+.profile-list {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  flex-direction: row;
+}
+
+.profile-list li button {
+  flex-wrap: no-wrap;
+  padding: 12px 16px;
+  border-radius: 25px;
+  color: #8e8e8e;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.profile-list li button:hover {
+  text-decoration: underline;
+}
+
+.active {
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.06);
+  color: #333 !important;
+}
+
+.component {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.outer-pin-show {
+  min-height: 200px;
+  height: 100%;
+  width: 25%;
+  max-width: 25%;
+}

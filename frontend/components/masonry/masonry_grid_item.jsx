@@ -1,21 +1,22 @@
-import React from 'react';
+import React from "react";
 
-class Tile extends React.Component {
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps === this.props) {
-      return false;
-    }
-  }
-
-  render() {
-    const {src} = this.props;
-    return (
-      <div className='tile'>
+const Tile = ({ src, comment }) => {
+  return (
+    <div className="pin-wrapper">
+      <div className="tile">
         <img src={src} />
+        <div className="save-btn">
+          <i className="fas fa-thumbtack" />
+          <p>Save</p>
+        </div>
+        <div className="tile-comment">
+          <span>
+            {comment}
+          </span>
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Tile;

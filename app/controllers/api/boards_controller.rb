@@ -24,7 +24,7 @@ class Api::BoardsController < ApplicationController
     if @board.update_attributes(board_params)
       render 'api/boards/show'
     else
-      render json: ['Something went wrong. Cant update board'], status: 422
+      render json: ['Something went wrong. Cant update board'], status: 401
     end
   end
 
@@ -33,8 +33,8 @@ class Api::BoardsController < ApplicationController
     if @board.destroy
       render 'api/boards/show'
     else
-      render json: ['Something went wrong. Cant delete board'], status: 404
-    end 
+      render json: ['Something went wrong. Cant delete board'], status: 401
+    end
   end
 
   def board_params

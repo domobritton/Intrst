@@ -30,9 +30,6 @@ class Api::PinsController < ApplicationController
   end
 
   def pin_params
-    params.require(:pin).permit(:comment, :url)
+    params.require(:pin).permit(:comment, :url, :image, :board_id)
   end
 end
-
-# need changes here for AWS of image_url
-# in create destroy methods and in params

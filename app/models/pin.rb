@@ -12,11 +12,23 @@
 #
 
 class Pin < ApplicationRecord
+  validate :ensure_image
 
   belongs_to :user,
   primary_key: :id,
   foreign_key: :author_id,
   class_name: :User
 
-  belongs_to :board
+  belongs_to :board,
+  primary_key: :id,
+  foreign_key: :board_id,
+  class_name: :Board
+
+  has_one_attached :image
+
+  def ensure_image
+    unless self.image.attached?
+      errors[:image] << 'Image must be attached'
+    end
+  end
 end
