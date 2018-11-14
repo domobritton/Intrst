@@ -19,7 +19,7 @@ Intrst employs Ruby on Rails, React/Redux, and utilizes AWS S3 ActiveStorage.
 
 This masonry layout is responsive and re-organizes columns of images formulated on breakpoints for the best user experience on screens of all sizes. 
 
-![Masonry Grid Full Screen](https://github.com/domobritton/Intrst/blob/master/pinterest/Screen%20Shot%202018-10-19%20at%209.12.18%20AM.png)
+![Masonry Grid Full Screen](Screen Shot 2018-10-19 at 9.12.18 AM.png)
 
 Columns resize from 4, 3, 2, or 1 column. 
 
