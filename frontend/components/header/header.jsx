@@ -1,38 +1,89 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./header_items";
 import Masonry from "../masonry/masonry";
+import { HeaderBar, Search, Input, Icon, LogoBtn, Logo, FooterBar } from './header_style'
 
-const Header = ({ currentUser, logout, openModal, closeModal }) => {
-  const sessionLinks = () => {
+
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      width: window.innerWidth,
+    }
+  }
+
+  componentWillMount() {
+    window.addEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  sessionLinks = () => {
     return (
-      <div>
+      <>
         <Masonry />
-      </div>
+      </>
     );
   };
 
-  const nav = () =>
-    <div className="header">
-      <div className="logo-outer">
+  nav = () => {
+    const { currentUser, logout } = this.props;
+    return (
+    <HeaderBar>
+      <LogoBtn>
         <Link to="/">
-          <img className="nav-logo" src={window.logo} alt="Intrst logo" />
+          <Logo src={window.logo} alt="Intrst logo" />
         </Link>
-      </div>
-      <div className="search">
-        <span className="fa fa-search" />
-        <input type="text" placeholder="Search" />
-      </div>
+      </LogoBtn>
+      <Search>
+        <Icon className="fa fa-search" />
+        <Input type="text" placeholder="Search" />
+      </Search>
       <Menu currentUser={currentUser} logout={logout} />
-    </div>;
-
-  if (currentUser) {
-    closeModal();
-    return nav();
-  } else {
-    openModal({ modal: "ShowSignup" });
-    return sessionLinks();
+    </HeaderBar>
+    );
   }
-};
+
+  mobileNav = () => {
+    const { currentUser, logout } = this.props
+    return (
+      <>
+      <HeaderBar>
+      <Search>
+        <Icon className="fa fa-search" />
+        <Input type="text" placeholder="Search" />
+      </Search>
+      </HeaderBar>
+
+      <FooterBar>
+        <Menu currentUser={currentUser} logout={logout} />
+      </FooterBar>
+      </>
+    );
+  }
+
+  render() {
+    const { width } = this.state;
+    const isMobile = width <= 710;
+    const { currentUser, openModal, closeModal } = this.props;
+    if (currentUser && !isMobile) {
+      closeModal();
+      return this.nav();
+    } else if (currentUser && isMobile) {
+      closeModal();
+      return this.mobileNav();
+    } else {
+      openModal({ modal: "ShowSignup" });
+      return this.sessionLinks();
+    }
+  }
+}
 
 export default Header;

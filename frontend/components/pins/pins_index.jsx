@@ -62,17 +62,6 @@ class PinsIndex extends React.Component {
                       className="pin-show"
                       onClick={() => this.props.history.push(`/pin/${pin.id}`)}
                     >
-                      <div className="show-modal">
-                        <div
-                          className="pin-save"
-                          onClick={e => {
-                            e.preventDefault();
-                            this.props.openModal({
-                              modal: "SavePin",
-                              pin: pin
-                            });
-                          }}
-                        >
                           <div>
                             <Tile
                               key={id}
@@ -81,25 +70,14 @@ class PinsIndex extends React.Component {
                             />
                           </div>
                         </div>
-                      </div>
-                    </div>
                   : <div
                       className="pin-show"
-                      onClick={() => this.props.history.push(`/pin/${id}`)}
                     >
                       <div className="show-modal">
                         <div
-                          className="pin-save"
-                          onClick={e => {
-                            e.preventDefault();
-                            this.props.openModal({
-                              modal: "SavePin",
-                              pin: pin
-                            });
-                          }}
-                        >
+                          className="pin-save">
                           <div>
-                            <Tile key={id} src={pin} comment={""} />
+                            <Tile key={id + 100} src={pin} comment={""} />
                           </div>
                         </div>
                       </div>

@@ -1,50 +1,55 @@
-.pin-show-outer {
+import styled from 'styled-components';
+
+export const PinPage = styled.div`
   height: 100vh;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-}
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  background-color: #eeeeee;
+`;
 
-.show-div {
+export const Wrapper = styled.div`
   position: relative;
   height: 100vh;
   max-height: 100vh;
-  width: 100vw;
-  background-color: #eeeeee;
-  z-index: 11;
+  width: 100%;
   cursor: zoom-out;
-}
+  z-index: 0;
+`;
 
-.back-btn {
+export const BackBtn = styled.div`
   position: absolute;
-  top: 25px;
+  top: 0;
   left: 25px;
   width: 65px;
   height: 25px;
   border-radius: 25px;
   padding: 12px 16px;
   cursor: pointer;
-}
 
-.back-btn:hover {
-  background-color: rgba(0,0,0,0.07);
-}
+  &:hover {
+      background-color: rgba(0,0,0,0.07);
+  }
+`;
 
-.fa-chevron-left {
+export const Arrow = styled.i`
   float: left;
   font-size: 25px;
   color: #333;
   padding-right: 10px;
-}
+`;
 
-.back-btn p {
+export const ButtonP = styled.p`
   font-size: 17px;
   line-height: 1.2;
   font-weight: 900;
-}
+`;
 
-.center-div-show {
-  display: flex;
+export const SaveDiv = styled.div`
   position: relative;
   margin: auto;
   margin-top: 40px;
@@ -54,24 +59,24 @@
   border-radius: 8px;
   text-align: center;
   padding: 0, 20px, 20px, 20px;
-  z-index: 11;
-}
+  z-index: 99;
+`;
 
-.pin-show-header {
+export const Header = styled.div`
   width: 100%;
   height: 80px;
-}
+`;
 
-.pin-image {
+export const Image = styled.img`
   position: absolute;
   bottom: 20px;
   top: 80px;
   left: 20px;
   width: 300px;
   border-radius: 10px;
-}
+`;
 
-.save-show-pin {
+export const Save = styled.div`
   background-color: #bd081c;
   position: absolute;
   top: 12px;
@@ -83,4 +88,4 @@
   color: #fff;
   cursor: pointer;
   border-radius: 6px;
-}
+`;

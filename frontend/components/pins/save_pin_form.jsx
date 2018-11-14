@@ -40,7 +40,6 @@ class SavePinForm extends React.Component {
   render() {
     const { boards } = this.props;
     const images = [];
-
     for (let i = 0; i < 4; i++) {
       let randomNum = Math.floor(Math.random() * 1000);
       images.push(`https://source.unsplash.com/random?sig=${randomNum}`);
@@ -63,7 +62,7 @@ class SavePinForm extends React.Component {
           <div className="form-left-board">
             <div className="pin-upload-outer-ready">
               <div className="thumbnail-outer">
-                <img className="img-thumbnail" src={this.state.imageUrl} />
+                <img className="img-thumbnail" src={this.state.image} />
               </div>
             </div>
           </div>

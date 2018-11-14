@@ -1,22 +1,36 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React, { Component } from "react";
+// import { withRouter } from "react-router-dom";
+import { PinPage, Wrapper, BackBtn, Arrow, ButtonP, SaveDiv, Header, Image, Save} from './show_style';
 
-class PinShow extends React.Component {
+class PinShow extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      comment: "",
+      url: "",
+      imageUrl: null,
+      image: null
+    }
+  }
+
   componentDidMount() {
     this.props.fetchPin(this.props.match.params.id);
-    window.scroll(150, 150);
+    // window.scroll(150, 150);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
       this.props.fetchPin(nextProps.match.params.id);
     }
+    this.setState({imageUrl: this.props.pin.imageUrl})
   }
 
   render() {
-    if (this.props.pin) {
+    const { pin } = this.props;
+    if (pin) {
       let val;
-      if (this.props.pin.author_id === this.props.currentUser.id) {
+      if (pin.authorId === this.props.currentUser.id) {
         val = (
           <div className="pencil">
             <i class="fas fa-pencil-alt" />
@@ -26,55 +40,34 @@ class PinShow extends React.Component {
         val = "";
       }
 
-      return (
-        <div className="pin-show-outer">
-          <div className="show-div" onClick={() => this.props.history.goBack()}>
-            <div className="back-btn">
-              <span>
-                <i className="fas fa-chevron-left" />
-                <p>Back</p>
-              </span>
-            </div>
-            <div className="center-div-show">
+      return <PinPage>
+          <Wrapper>
+            <BackBtn onClick={() => this.props.history.goBack()}>
+              <Arrow className="fas fa-chevron-left" />
+              <ButtonP>Back</ButtonP>
+            </BackBtn>
+            <SaveDiv>
               <div className="center-div-inner">
-                <div className="pin-show-header">
-                  <div className="save-pin">
-                    <div
-                      className="pin-save"
-                      onClick={e => {
-                        e.preventDefault();
-                        this.props.openModal({
-                          modal: "SavePin",
-                          pin: this.props.pin
-                        });
-                      }}
-                    >
-                      <div className="save-show-pin">
-                        <i className="fas fa-thumbtack" />
-                        <p>Save</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Header>
+                </Header>
                 <div className="pin-comment">
                   {this.props.pin.comment}
                 </div>
                 <div>
-                  <img className="pin-image" src={this.props.pin.imageUrl} />
+                  <Image src={this.props.pin.imageUrl} />
                 </div>
                 <div className="user-image">
-                  <img src={this.props.pin.author_image} />
+                  <img src={this.props.pin.authorImage} />
                 </div>
                 <div className="author" />
               </div>
-            </div>
-          </div>
-        </div>
-      );
+            </SaveDiv>
+          </Wrapper>
+        </PinPage>;
     } else {
       return null;
     }
   }
 }
 
-export default withRouter(PinShow);
+export default PinShow;

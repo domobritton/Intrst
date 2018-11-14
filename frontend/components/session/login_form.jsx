@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { withRouter } from "react-router";
 import {
   SessionPage,
@@ -17,7 +17,7 @@ import {
   DivLine
 } from "./form_style";
 
-class LoginForm extends React.Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,39 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Links, NavBtn, StyledLink, User, ImageBtn, Image, Logout } from './header_style'
 
 const Menu = ({ currentUser, logout }) => {
   return (
-    <div className="links">
-      <div className="btn">
-        <Link to="/">Home</Link>
-      </div>
-      <div className="btn">
-        <Link to="/following">Following</Link>
-      </div>
-      <div className="btn">
-        <Link to={`/user/${currentUser.id}`}>
-          <div className="header-user">
-            <div className="header-image-outer">
+    <Links>
+      <NavBtn>
+        <StyledLink to="/">Home</StyledLink>
+      </NavBtn>
+      <NavBtn>
+        <StyledLink to="/following">Following</StyledLink>
+      </NavBtn>
+      <NavBtn>
+        <StyledLink to={`/user/${currentUser.id}`}>
+            <ImageBtn>
               {currentUser.imageUrl
-                ? <img src={currentUser.imageUrl} />
-                : <img
-                    className="header-profile-image"
+                ? <Image src={currentUser.imageUrl} />
+                : <Image
                     src="https://source.unsplash.com/user/yiwen0316"
                   />}
-            </div>
-            <div className="profile-nav">
+            </ImageBtn>
+            <User>
               {currentUser.username[0].toUpperCase() +
                 currentUser.username.slice(1)}
-            </div>
-          </div>
-        </Link>
-      </div>
-      <div className="btn">
-        <button className="logout" onClick={logout}>
+            </User>
+        </StyledLink>
+      </NavBtn>
+      <NavBtn>
+        <Logout onClick={logout}>
           Log Out
-        </button>
-      </div>
-    </div>
+        </Logout>
+      </NavBtn>
+    </Links>
   );
 };
 
