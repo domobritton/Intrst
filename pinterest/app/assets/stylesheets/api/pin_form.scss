@@ -1,0 +1,363 @@
+.create-pin-page {
+  position: absolute;
+  overflow: hidden;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+}
+
+.create-pin-page::before {
+  position: absolute;
+  display: block;
+  content:" ";
+  top:0;
+  left:0;
+  width:100vw;
+  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
+  z-index: 11;
+  background-color: rgba(0,0,0,0.70);
+}
+
+.create-pin-form {
+  margin: auto;
+  width: 804px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 45px;
+  z-index: 12;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.label {
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px 10px;
+  border-radius: 50%;
+}
+
+.close:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.close .fa-times {
+  color: #8e8e8e;
+  font-size: 26px;
+}
+
+.create-pin-header {
+  display: flex;
+  justify-content: center;
+  max-height: 68px;
+  padding: 20px 50px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.07);
+}
+
+.pin-upload-outer {
+  width: 236px;
+  height: 371px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  left: 80px;
+  outline: none;
+  position: absolute;
+  border: 2px dashed rgba(142, 142, 142, 1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pin-upload-outer-ready {
+  width: 236px;
+  height: 371px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  left: 80px;
+  outline: none;
+  position: absolute;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pin-upload-outer .fa-camera {
+  font-size: 30px;
+}
+
+.pin-upload-inner {
+  padding-left: 48px;
+  padding-right: 48px;
+  margin-top: 8px;
+}
+
+.pin-upload-inner p {
+  font-size: 16px;
+  line-height: 1.2;
+  color: #333;
+  text-align: center;
+  word-wrap: break-word;
+  font-weight: 700;
+}
+
+
+.form-left {
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 235px;
+  height: 371px;
+  border-radius: 10px;
+}
+
+.form-right {
+  width: 360px;
+  text-align: left;
+  margin-top: 25px;
+  position: relative;
+  margin-left: 340px;
+}
+
+.form-right-board {
+  position: absolute;
+  margin-top: 25px;
+  width: 50%;
+  height: 80%;
+  text-align: left;
+  top: 60px;
+  right: 0;
+}
+
+.form-left-board {
+  position: absolute;
+  margin-top: 25px;
+  width: 50%;
+  height: 80%;
+  top: 60px;
+  left: 0;
+  border-right: 1px solid #f5f5f5;
+}
+
+.label {
+  color: #333;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.website {
+  height: 40px;
+  width: 360px;
+  padding-left: 20px;
+  border: 1px solid #8e8e8e;
+  cursor: text;
+  border-radius: 4px;
+}
+
+.comment {
+  height: 166px;
+  width: 360px;
+  padding-top: 20px;
+  padding-left: 20px;
+  border: 1px solid #8e8e8e;
+  cursor: text;
+  border-radius: 4px;
+  resize: none;
+}
+
+::placeholder {
+  color: #b3b3b3;
+}
+
+.create-pin-footer {
+  display: flex;
+  justify-content: space-between;
+  max-height: 68px;
+  padding: 20px 50px;
+  box-shadow: 0 -1px 1px rgba(0,0,0,0.07);
+  margin-top: 135px;
+}
+
+.done-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.done-btn-red {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  background-color: #bd081c;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  color: #8e8e8e;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #efefef !important;
+}
+
+.submit-btn-red {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #bd081c;
+}
+
+.real-upload {
+  font-size: 28px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 2;
+  width: 236px;
+  height: 371px;
+}
+
+.pin-upload-outer .fake-upload {
+  cursor: pointer;
+  margin-top: 55%;
+  height: 371px;
+}
+
+.pin-upload-outer .fake-upload input {
+  width: 236px;
+  height: 371px;
+}
+
+.thumbnail-outer {
+  position: relative;
+  overflow: hidden;
+  width: 235px;
+  height: 371px;
+  border-radius: 10px;
+}
+
+.img-thumbnail {
+  width: 235px;
+  max-height: 371px;
+  border-radius: 10px;
+}
+
+.form-right-board li {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 900;
+  padding: 8px 24px;
+  cursor: pointer;
+}
+
+.form-right-board img {
+  height: 35px;
+  width: 35px;
+  margin-right: 8px;
+  border-radius: 8px;
+  background-color: #8e8e8e;
+}
+
+.form-right-board li:hover {
+  cursor: pointer;
+	background-color: rgba(239, 239, 239, 1);
+  .save-btn-board {
+    visibility: visible;
+	  background-color: #bd081c;
+	}
+  input {
+    background-color: rgba(239, 239, 239, 1);
+    cursor: pointer;
+  }
+}
+
+.save-btn-board {
+  position: absolute;
+  visibility: hidden;
+  right: 25px;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  padding: 10px 6px 6px 10px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.save-btn-board .fa-thumbtack {
+  float: left;
+  padding-right: 2px;
+}
+
+.save-btn-board p {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.board-info {
+  position: relative;
+  border-top: 1px solid #f5f5f5;
+  height: 64px;
+  cursor: pointer;
+}
+
+.board-info p {
+  position: relative;
+  top: 25px;
+  left: 30px;
+}
+
+.board-info:hover {
+  background-color: rgba(239, 239, 239, 1);
+}
+
+#plus-outer-save {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  top: 15px;
+  left: 22px;
+  background-color: #bd081c;
+  border-radius: 50%;
+  float: left;
+  margin: auto;
+}
+
+#plus-outer-save .fa-plus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 56%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 18px;
+}
