@@ -1,24 +1,54 @@
 import React from "react";
 import { withRouter } from "react-router";
+import {
+  SessionPage,
+  Wrapper,
+  Header,
+  Logo,
+  Welcome,
+  Subtitle,
+  UpperForm,
+  LowerForm,
+  Input,
+  Submit,
+  Error, 
+  SignupLink, 
+  Link,
+  DivLine
+} from "./form_style";
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      width: window.innerWidth
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
     this.loginHelper = this.loginHelper.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
+    this.updateEmail = this.updateEmail.bind(this);
+    this.updatePassword = this.updatePassword.bind(this);
   }
 
+  componentWillMount() {
+    window.addEventListener("resize", this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+
   updateEmail(e) {
+    e.preventDefault();
     this.setState({ email: e.currentTarget.value });
   }
 
   updatePassword(e) {
+    e.preventDefault();
     this.setState({ password: e.currentTarget.value });
   }
 
@@ -40,6 +70,7 @@ class LoginForm extends React.Component {
   }
 
   componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowSizeChange);
     this.props.clearErrors();
   }
 
@@ -47,6 +78,12 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(() => this.props.history.push("/"));
+  }
+
+  handleGuest(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.guest(user);
   }
 
   guestLogin() {
@@ -79,58 +116,54 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    const { width } = this.state;
+    const isMobile = width <= 710;
     return (
-      <div className="session-page">
-        <div className="session-form">
-          <img className="logo" src={window.logo} alt="logo" />
-          <h3>Log in to see more</h3>
-          <h4>Access Intrst's best ideas</h4>
-          <form className="inner-form" onSubmit={this.handleSubmit}>
-            <div className="input-fields">
-              <input
-                type="text"
-                placeholder="Email"
-                onChange={this.updateEmail.bind(this)}
-                value={this.state.email}
-              />
-              <br />
-              <input
-                type="password"
-                placeholder="Password"
-                onChange={this.updatePassword.bind(this)}
-                value={this.state.password}
-              />
-              <br />
-            </div>
-            <div className="login-submit-btn">
-              <input id="login" type="submit" value={this.props.formType} />
-            </div>
-          </form>
-          <form>
-            <div className="login-submit-btn">
-              <input
-                type="submit"
-                onClick={this.guestLogin}
-                value="Demo Login"
-              />
-            </div>
+      <SessionPage>
+        <Wrapper>
+          <Header>
+            <Logo src={window.logo} alt="logo" />
+            <Welcome>Log in to see more</Welcome>
+            <Subtitle>Access Intrst's best ideas</Subtitle>
+          </Header>
+          <UpperForm onSubmit={this.handleSubmit}>
+            <Input
+              type="text"
+              placeholder="Email"
+              onChange={this.updateEmail}
+              value={this.state.email}
+            />
+            <br />
+            <Input
+              type="password"
+              placeholder="Password"
+              onChange={this.updatePassword}
+              value={this.state.password}
+            />
+            <br />
+            <Submit id="login" type="submit" value={this.props.formType} />
+            <br />
+          </UpperForm>
+          <LowerForm>
+            <Submit
+              type="submit"
+              onClick={this.guestLogin}
+              value="Demo Login"
+            />
             <button id="login2" type="button" onClick={this.handleGuest} />
             <br />
-            <div className="div-line" />
-            <div className="signup-link">
-              <div
-                className="signup-link"
+            <DivLine />
+              <SignupLink
                 onClick={() => this.props.openModal({ modal: "ShowSignup" })}
               >
-                <p>Not on Intrst yet? Sign Up</p>
-              </div>
-            </div>
-          </form>
-          <div className="errors">
+                <Link>Not on Intrst yet? Sign Up</Link>
+              </SignupLink>
+          </LowerForm>
+          <Error>
             {this.errorsMessage()}
-          </div>
-        </div>
-      </div>
+          </Error>
+        </Wrapper>
+      </SessionPage>
     );
   }
 }

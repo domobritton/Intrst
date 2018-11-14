@@ -13,6 +13,7 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
+    guest: user => dispatch(login(user)),
     processForm: user => dispatch(login(user)),
     clearErrors: () => dispatch(clearErrors()),
     openModal: modal => dispatch(openModal(modal)),
